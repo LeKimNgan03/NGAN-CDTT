@@ -1,9 +1,13 @@
+import { Link } from "react-router-dom";
+
 function Product() {
-    return ( 
+    return (
         <div>
-            <h1 className="text-center">Sản phẩm</h1><br/>
+            <Link className="p-3 pb-0 fw-light text-uppercase" to="/">Sản phẩm</Link>
+
+            <hr className="mx-3" />
         </div>
-     );
+    );
 }
 
 export default Product;

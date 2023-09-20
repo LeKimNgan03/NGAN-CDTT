@@ -1,5 +1,5 @@
 import Contact from "../Contact";
-import Category from "./Category";
+import ProductHome from "./ProductHome";
 import Slider from "./Slider";
 
 function Home() {
@@ -9,17 +9,10 @@ function Home() {
                 <Slider />
             </div>
 
-            <div className="category">
-                <Category />
-            </div>
-
             <div className="product">
-
+                <ProductHome />
             </div>
 
-            <div className="contact">
-                <Contact />
-            </div>
         </section>
     );
 }

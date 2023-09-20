@@ -1,0 +1,56 @@
+* 0 => all
+* 1 => Hoa bó
+* 2 => Bình Hoa
+* 3 => Hoa cưới
+* 4 => Hoa Tulip
+* 5 => Hoa mẫu đơn
+
+*** === 1 === ***
+`product-1-1 -> Mood Maker
+`product-1-2 -> Warmth
+`product-1-3 -> Midnight Story
+`product-1-4 -> Scentsation
+`product-1-5 -> Pretty Petals
+`product-1-6 -> Secret Garden
+`product-1-7 -> Beautiful Ocean
+`product-1-8 -> First Date
+
+*** === 2 === ***
+`product-2-1 -> Serene Splendor
+`product-2-2 -> Mystic Moonlight
+`product-2-3 -> Joyful Autumn
+`product-2-4 -> My Beloved
+`product-2-5 -> Rosy Lovers
+`product-2-6 -> Hope for love
+`product-2-7 -> Beautiful In Pink
+`product-2-8 -> Blue Sea
+
+*** === 3 === ***
+`product-3-1 -> Being Together
+`product-3-2 -> See You Every Morning
+`product-3-3 -> Endless Love
+`product-3-4 -> Til the End of Time
+`product-3-5 -> Past Present and Future
+`product-3-6 -> Pink Life
+`product-3-7 -> Stand by Me
+`product-3-8 -> Be My Wife
+
+*** === 4 === ***
+`product-4-1 -> Tresor Pink
+`product-4-2 -> Milkshake
+`product-4-3 -> Red Tulip
+`product-4-4 -> All In Bloom
+`product-4-5 -> Passio Pink
+`product-4-6 -> Colorful tulip
+`product-4-7 -> Hot Orange
+`product-4-8 -> Double Dreamer
+
+*** === 5 === ***
+`product-5-1 -> Bubblegum Peony
+`product-5-2 -> Nostalgia
+`product-5-3 -> White Snow
+`product-5-4 -> Love Habit
+`product-5-5 -> Love Tale
+`product-5-6 -> First Love
+`product-5-7 -> Orange and Pink
+`product-5-8 -> Lovely pink

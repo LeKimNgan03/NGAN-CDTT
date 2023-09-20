@@ -11,10 +11,10 @@ function Contact() {
             <div className="row p-3">
                 <div className="col-md-3">
                     <h5 className="pb-2">Địa chỉ của chúng tôi</h5>
-                    <p><span className="p-1 rounded-4" style={{ backgroundColor: `#FDE5EC`, color: `#E48586` }}><GoLocation /></span> TP.Thủ Đức, TP.HCM</p>
-                    <p><span className="p-1 rounded-4" style={{ backgroundColor: `#FDE5EC`, color: `#E48586` }}><GoMail /></span> info@gmail.com</p>
-                    <p><span className="p-1 rounded-4" style={{ backgroundColor: `#FDE5EC`, color: `#E48586` }}><BsTelephoneFill /></span> + 01 234 567 88</p>
-                    <p><span className="p-1 rounded-4" style={{ backgroundColor: `#FDE5EC`, color: `#E48586` }}><BsTelephoneFill /></span> + 01 234 567 88</p>
+                    <p><span className="p-1 rounded-4" style={{ marginRight: 5, backgroundColor: `#FDE5EC`, color: `#E48586` }}><GoLocation /></span> TP.Thủ Đức, TP.HCM</p>
+                    <p><span className="p-1 rounded-4" style={{ marginRight: 5, backgroundColor: `#FDE5EC`, color: `#E48586` }}><GoMail /></span> info@gmail.com</p>
+                    <p><span className="p-1 rounded-4" style={{ marginRight: 5, backgroundColor: `#FDE5EC`, color: `#E48586` }}><BsTelephoneFill /></span> + 01 234 567 88</p>
+                    <p><span className="p-1 rounded-4" style={{ marginRight: 5, backgroundColor: `#FDE5EC`, color: `#E48586` }}><BsTelephoneFill /></span> + 01 234 567 88</p>
                 </div>
 
                 <div className="col-md-9">

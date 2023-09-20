@@ -1,5 +1,6 @@
 import { BsTelephoneFill } from "react-icons/bs";
 import { GoMail, GoLocation } from "react-icons/go";
+import { Link } from "react-router-dom";
 
 function Footer() {
     return (
@@ -23,21 +24,20 @@ function Footer() {
                                 <hr className="w-100 clearfix d-md-none" />
 
                                 <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-                                    <h6 className="text-uppercase mb-4 font-weight-bold">Sản phẩm</h6>
-                                    <p><a className="text-white">MDBootstrap</a></p>
-                                    <p><a className="text-white">MDWordPress</a></p>
-                                    <p><a className="text-white">BrandFlow</a></p>
-                                    <p><a className="text-white">Bootstrap Angular</a></p>
+                                    <h6 className="text-uppercase mb-4 font-weight-bold">Hỗ trợ</h6>
+                                    <p><Link to="/gioi-thieu" className="text-white">Giới thiệu</Link></p>
+                                    <p><Link to="/san-pham" className="text-white">Sản phẩm</Link></p>
+                                    <p><Link to="/blog" className="text-white">Bài viết</Link></p>
+                                    <p><Link to="/lien-he" className="text-white">Liên hệ</Link></p>
                                 </div>
 
                                 <hr className="w-100 clearfix d-md-none" />
 
                                 <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
                                     <h6 className="text-uppercase mb-4 font-weight-bold">Chính sách</h6>
-                                    <p><a className="text-white">Your Account</a></p>
-                                    <p><a className="text-white">Become an Affiliate</a></p>
-                                    <p><a className="text-white">Shipping Rates</a></p>
-                                    <p><a className="text-white">Help</a></p>
+                                    <p><Link to="/" className="text-white">Chính sách vận chuyển</Link></p>
+                                    <p><Link to="/" className="text-white">Chính sách bảo mật</Link></p>
+                                    <p><Link to="/" className="text-white">Quy định & chính sách</Link></p>
                                 </div>
 
                                 <hr className="w-100 clearfix d-md-none" />

@@ -1,17 +1,32 @@
-import slider1 from "../../../assets/img/slider-1.jpg";
-import slider2 from "../../../assets/img/slider-2.jpg";
+import { useEffect, useState } from "react";
+import { urlImage } from '../../../config';
+import sliderservice from "../../../services/SliderService";
 
 function Slider() {
+    const [sliders, setSliders] = useState([]);
+    useEffect(() => {
+        {
+            sliderservice.getByPosition('slidershow').then((result) => {
+                setSliders(result.data.sliders);
+            });
+        }
+    }, []);
+
     return (
         <div>
             <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src={slider1} class="d-block w-100" alt="..." />
-                    </div>
-                    <div class="carousel-item">
-                        <img src={slider2} class="d-block w-100" alt="..." />
-                    </div>
+                    {sliders.map((slider, index) => {
+                        return index === 0 ? (
+                            <div class="carousel-item active" key={index}>
+                                <img src={`${urlImage}slider/${slider.image}`} class="d-block w-100" alt={slider.name} />
+                            </div>
+                        ) : (
+                            <div class="carousel-item" key={index}>
+                                <img src={`${urlImage}slider/${slider.image}`} class="d-block w-100" alt={slider.name} />
+                            </div>
+                        );
+                    })}
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true" />
