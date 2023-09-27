@@ -36,6 +36,7 @@ function SliderList() {
                     </div>
                 </div>
             </div>
+
             <div className="card-body">
                 <table className="table table table-striped table-bordered table-hover">
                     <thead>
@@ -51,13 +52,15 @@ function SliderList() {
                     </thead>
                     <tbody>
                         {sliders.map((slider, index) => <tr key={index}>
-                            <td className="text-center">
-                                <input type="checkbox" />
-                            </td>
+                            <td className="text-center"><input type="checkbox" /></td>
                             <td className="text-center">{slider.name}</td>
                             <td className="text-center">{slider.link}</td>
                             <td className="text-center">
-                                <img style={{ width: 100 }} className="img-fluid" src={`${urlImage}slider/${slider.image}`} alt={slider.name} />
+                                <img
+                                    style={{ width: 100 }}
+                                    className="img-fluid"
+                                    src={`${urlImage}slider/${slider.image}`}
+                                    alt={slider.name} />
                             </td>
                             <td className="text-center">{slider.position}</td>
                             <td className="text-center">
@@ -79,4 +82,5 @@ function SliderList() {
         </section>
     );
 }
+
 export default SliderList;

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function Footer() {
     return (
         <div>
-            <div className="">
+            <div className="mt-3">
                 <footer
                     className="text-center text-lg-start text-white"
                     style={{ backgroundColor: `#E48586` }}>
@@ -25,19 +25,19 @@ function Footer() {
 
                                 <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
                                     <h6 className="text-uppercase mb-4 font-weight-bold">Hỗ trợ</h6>
-                                    <p><Link to="/gioi-thieu" className="text-white">Giới thiệu</Link></p>
-                                    <p><Link to="/san-pham" className="text-white">Sản phẩm</Link></p>
-                                    <p><Link to="/blog" className="text-white">Bài viết</Link></p>
-                                    <p><Link to="/lien-he" className="text-white">Liên hệ</Link></p>
+                                    <p><Link to="/gioi-thieu" className="text-white text-decoration-none">Giới thiệu</Link></p>
+                                    <p><Link to="/san-pham" className="text-white text-decoration-none">Sản phẩm</Link></p>
+                                    <p><Link to="/blog" className="text-white text-decoration-none">Bài viết</Link></p>
+                                    <p><Link to="/lien-he" className="text-white text-decoration-none">Liên hệ</Link></p>
                                 </div>
 
                                 <hr className="w-100 clearfix d-md-none" />
 
                                 <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
                                     <h6 className="text-uppercase mb-4 font-weight-bold">Chính sách</h6>
-                                    <p><Link to="/" className="text-white">Chính sách vận chuyển</Link></p>
-                                    <p><Link to="/" className="text-white">Chính sách bảo mật</Link></p>
-                                    <p><Link to="/" className="text-white">Quy định & chính sách</Link></p>
+                                    <p><Link to="/" className="text-white text-decoration-none">Chính sách vận chuyển</Link></p>
+                                    <p><Link to="/" className="text-white text-decoration-none">Chính sách bảo mật</Link></p>
+                                    <p><Link to="/" className="text-white text-decoration-none">Quy định & chính sách</Link></p>
                                 </div>
 
                                 <hr className="w-100 clearfix d-md-none" />

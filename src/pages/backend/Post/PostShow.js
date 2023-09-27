@@ -31,10 +31,8 @@ function PostShow() {
                         <strong className="text-dark">CHI TIẾT BÀI VIẾT</strong>
                     </div>
                     <div className="col-md-6 text-end">
-                        <Link to="/admin/post" className="btn btn-sm btn-success me-1">
-                            Về Danh Sách
-                        </Link>
-                        <Link to={"/admin/post/update/" + post.id} className="btn btn-sm btn-warning me-1 ">
+                        <Link to="/admin/post" className="btn btn-sm btn-success me-1">Về Danh Sách</Link>
+                        <Link to={`/admin/post/update/${post.id}`} className="btn btn-sm btn-warning me-1">
                             <FaEdit /> Sửa
                         </Link>
                         <button onClick={() => postDelete(post.id)} className="btn btn-sm btn-danger me-1">
@@ -43,6 +41,7 @@ function PostShow() {
                     </div>
                 </div>
             </div>
+
             <div className="card-body">
                 <table className="table table table-striped table-bposted table-hover">
                     <thead>
@@ -52,46 +51,24 @@ function PostShow() {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>ID</td>
-                            <td>{id}  </td>
-                        </tr>
-                        <tr>
-                            <td>Đề Tài</td>
-                            <td>{post.topic_id}  </td>
-                        </tr>
-                        <tr>
-                            <td>Tiêu Đề</td>
-                            <td>{post.title}  </td>
-                        </tr>
-                        <tr>
-                            <td>Slug</td>
-                            <td>{post.slug}  </td>
-                        </tr>
-                        <tr>
-                            <td>Mô tả</td>
-                            <td>{post.detail}  </td>
-                        </tr>
-                        <tr>
-                            <td>Chi tiết</td>
-                            <td>{post.metadesc}  </td>
-                        </tr>
-                        <tr>
-                            <td>Hình</td>
-                            <td><img style={{ width: 200 }} className="img-fluid" src={`${urlImage}post/${post.image}`} alt={post.name} /></td>
-                        </tr>
-                        <tr>
-                            <td>Từ Khóa</td>
-                            <td>{post.metakey}  </td>
-                        </tr>
-                        <tr>
-                            <td>Trạng Thái</td>
-                            <td>{post.status}  </td>
-                        </tr>
+                        <tr><td>ID</td><td>{id}</td></tr>
+                        <tr><td>Đề Tài</td><td>{post.topic_id}</td></tr>
+                        <tr><td>Tiêu Đề</td><td>{post.title}</td></tr>
+                        <tr><td>Slug</td><td>{post.slug}</td></tr>
+                        <tr><td>Mô tả</td><td>{post.detail}</td></tr>
+                        <tr><td>Chi tiết</td><td>{post.metadesc}</td></tr>
+                        <tr><td>Hình</td><td><img
+                            style={{ width: 200 }}
+                            className="img-fluid"
+                            src={`${urlImage}post/${post.image}`}
+                            alt={post.name} /></td></tr>
+                        <tr><td>Từ Khóa</td><td>{post.metakey}</td></tr>
+                        <tr><td>Trạng Thái</td><td>{post.status}</td></tr>
                     </tbody>
                 </table>
             </div>
         </section>
     );
 }
+
 export default PostShow;

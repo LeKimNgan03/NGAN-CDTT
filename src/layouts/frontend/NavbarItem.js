@@ -19,7 +19,11 @@ function NavbarItem(props) {
         </li>
     ) : (
         <li className="nav-item dropdown">
-            <Link className="nav-link dropdown-toggle text-white" to={rowmenu.link} role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <Link
+                className="nav-link dropdown-toggle text-white"
+                to={rowmenu.link} role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false">
                 {rowmenu.name}
             </Link>
             <ul className="dropdown-menu">

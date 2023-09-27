@@ -25,8 +25,13 @@ function getCategoryByParentId(parent_id) {
     return httpAxios.get(`category_list/${parent_id}`);
 }
 
+function getBySlug(slug) {
+    return httpAxios.get(`category/show/${slug}`);
+}
+
 const categoryservice = {
     getCategoryByParentId,
+    getBySlug,
     getAll,
     getById,
     create,

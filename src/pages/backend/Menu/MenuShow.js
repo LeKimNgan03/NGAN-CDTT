@@ -30,10 +30,8 @@ function MenuShow() {
                         <strong className="text-dark">CHI TIẾT MENU</strong>
                     </div>
                     <div className="col-md-6 text-end">
-                        <Link to="/admin/menu" className="btn btn-sm btn-success me-1">
-                            Về Danh Sách
-                        </Link>
-                        <Link to={`/admin/menu/update/${menu.id}`} className="btn btn-sm btn-warning me-1 ">
+                        <Link to="/admin/menu" className="btn btn-sm btn-success me-1">Về Danh Sách</Link>
+                        <Link to={`/admin/menu/update/${menu.id}`} className="btn btn-sm btn-warning me-1">
                             <FaEdit /> Sửa
                         </Link>
                         <button onClick={() => menuDelete(menu.id)} className="btn btn-sm btn-danger me-1">
@@ -42,6 +40,7 @@ function MenuShow() {
                     </div>
                 </div>
             </div>
+
             <div className="card-body">
                 <table className="table table table-striped table-bordered table-hover">
                     <thead>
@@ -51,30 +50,16 @@ function MenuShow() {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>ID</td>
-                            <td>{id}  </td>
-                        </tr>
-                        <tr>
-                            <td>Tên Thương Hiệu</td>
-                            <td>{menu.name}  </td>
-                        </tr>
-                        <tr>
-                            <td>Link</td>
-                            <td>{menu.link}  </td>
-                        </tr>
-                        <tr>
-                            <td>Sắp Xếp</td>
-                            <td>{menu.sort_order}  </td>
-                        </tr>
-                        <tr>
-                            <td>Trạng Thái</td>
-                            <td>{menu.status}  </td>
-                        </tr>
+                        <tr><td>ID</td><td>{id}</td></tr>
+                        <tr><td>Tên Thương Hiệu</td><td>{menu.name}</td></tr>
+                        <tr><td>Link</td><td>{menu.link}</td></tr>
+                        <tr><td>Sắp Xếp</td><td>{menu.sort_order}</td></tr>
+                        <tr><td>Trạng Thái</td><td>{menu.status}</td></tr>
                     </tbody>
                 </table>
             </div>
         </section>
     );
 }
+
 export default MenuShow;

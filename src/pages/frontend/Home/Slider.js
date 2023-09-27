@@ -14,27 +14,36 @@ function Slider() {
 
     return (
         <div>
-            <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
+            <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel">
+                <div className="carousel-inner">
                     {sliders.map((slider, index) => {
                         return index === 0 ? (
-                            <div class="carousel-item active" key={index}>
-                                <img src={`${urlImage}slider/${slider.image}`} class="d-block w-100" alt={slider.name} />
+                            <div className="carousel-item active" key={index}>
+                                <img src={`${urlImage}slider/${slider.image}`} className="d-block w-100" alt={slider.name} />
                             </div>
                         ) : (
-                            <div class="carousel-item" key={index}>
-                                <img src={`${urlImage}slider/${slider.image}`} class="d-block w-100" alt={slider.name} />
+                            <div className="carousel-item" key={index}>
+                                <img src={`${urlImage}slider/${slider.image}`} className="d-block w-100" alt={slider.name} />
                             </div>
                         );
                     })}
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true" />
-                    <span class="visually-hidden">Previous</span>
+
+                <button
+                    className="carousel-control-prev"
+                    type="button"
+                    data-bs-target="#carouselExampleAutoplaying"
+                    data-bs-slide="prev">
+                    <span className="carousel-control-prev-icon" aria-hidden="true" />
+                    <span className="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true" />
-                    <span class="visually-hidden">Next</span>
+                <button
+                    className="carousel-control-next"
+                    type="button"
+                    data-bs-target="#carouselExampleAutoplaying"
+                    data-bs-slide="next">
+                    <span className="carousel-control-next-icon" aria-hidden="true" />
+                    <span className="visually-hidden">Next</span>
                 </button>
             </div>
         </div>

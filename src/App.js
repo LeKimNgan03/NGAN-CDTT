@@ -10,14 +10,14 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Frontend />}>
-            {RouterSite.RouterPublic.map(function (route, index) {
+            {RouterSite.RouterPublic.map((route, index) => {
               const Page = route.component;
               return <Route key={index} path={route.path} element={<Page />} />
             })}
           </Route>
 
           <Route path="/admin" element={<Backend />}>
-            {RouterSite.RouterPrivate.map(function (route, index) {
+            {RouterSite.RouterPrivate.map((route, index) => {
               const Page = route.component;
               return <Route key={index} path={route.path} element={<Page />} />
             })}

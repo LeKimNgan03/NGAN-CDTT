@@ -50,50 +50,82 @@ function PostCreate() {
                 <div className="card-header">
                     <div className="row">
                         <div className="col-md-6">
-                            <strong className="text-dark">
-                                THÊM BÀI VIẾT
-                            </strong>
+                            <strong className="text-dark">THÊM BÀI VIẾT</strong>
                         </div>
                         <div className="col-md-6 text-end">
-                            <button type="submit" className=" btn btn-sm btn-success me-1">
-                                Lưu
-                            </button>
+                            <button type="submit" className=" btn btn-sm btn-success me-1">Lưu</button>
                             <Link to="/admin/post" className="btn btn-sm btn-info">Về Danh Sách</Link>
                         </div>
                     </div>
                 </div>
+
                 <div className="card-body">
                     <div className="row">
                         <div className="col-md-9">
                             <div className="mb-3">
                                 <label htmlFor="name">Tiêu Đề</label>
-                                <input type="text" name="name" value={title} onChange={(e) => setTitle(e.target.value)} className="form-control" />
+                                <input
+                                    type="text"
+                                    name="name"
+                                    value={title}
+                                    onChange={(e) => setTitle(e.target.value)}
+                                    className="form-control" />
                             </div>
+
                             <div className="mb-3">
                                 <label htmlFor="name">Chi Tiết</label>
-                                <textarea type="text" name="name" value={detail} onChange={(e) => setDetail(e.target.value)} className="form-control" />
+                                <textarea
+                                    type="text"
+                                    name="name"
+                                    value={detail}
+                                    onChange={(e) => setDetail(e.target.value)}
+                                    className="form-control" />
                             </div>
+
                             <div className="mb-3">
                                 <label htmlFor="name">Kiểu</label>
-                                <input type="text" name="name" value={type} onChange={(e) => setType(e.target.value)} className="form-control" />
+                                <input
+                                    type="text"
+                                    name="name"
+                                    value={type}
+                                    onChange={(e) => setType(e.target.value)}
+                                    className="form-control" />
                             </div>
                         </div>
+
                         <div className="col-md-3">
                             <div className="mb-3">
                                 <label htmlFor="image">Hình Đại Diện</label>
                                 <input type="file" id="image" className="form-control" />
                             </div>
+
                             <div className="mb-3">
                                 <label htmlFor="name">Từ Khóa</label>
-                                <textarea type="text" name="name" value={metakey} onChange={(e) => setMetakey(e.target.value)} className="form-control" />
+                                <textarea
+                                    type="text"
+                                    name="name"
+                                    value={metakey}
+                                    onChange={(e) => setMetakey(e.target.value)}
+                                    className="form-control" />
                             </div>
+
                             <div className="mb-3">
                                 <label htmlFor="name">Mô Tả</label>
-                                <textarea type="text" name="name" value={metadesc} onChange={(e) => setMetadesc(e.target.value)} className="form-control" />
+                                <textarea
+                                    type="text"
+                                    name="name"
+                                    value={metadesc}
+                                    onChange={(e) => setMetadesc(e.target.value)}
+                                    className="form-control" />
                             </div>
+
                             <div className="mb-3">
                                 <label htmlFor="sort">Trạng Thái</label>
-                                <select name="sort" value={status} className="form-control" onChange={(e) => setStatus(e.target.value)}>
+                                <select
+                                    name="sort"
+                                    value={status}
+                                    className="form-control"
+                                    onChange={(e) => setStatus(e.target.value)}>
                                     <option value="1">Xuất bản</option>
                                     <option value="2">Chưa xuất bản</option>
                                 </select>
@@ -105,4 +137,5 @@ function PostCreate() {
         </form>
     );
 }
+
 export default PostCreate;

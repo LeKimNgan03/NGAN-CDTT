@@ -33,6 +33,7 @@ function BlogDetail() {
                     <p>{post.metadesc}</p>
                 </div>
 
+                {/* Other posts */}
                 <h3 className="p-3 pb-0 fw-light text-uppercase">Bài viết liên quan</h3>
 
                 <hr className="mx-3" />

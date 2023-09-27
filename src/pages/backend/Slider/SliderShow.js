@@ -30,10 +30,8 @@ function SliderShow() {
                         <strong className="text-dark">CHI TIẾT SLIDER</strong>
                     </div>
                     <div className="col-md-6 text-end">
-                        <Link to="/admin/slider" className="btn btn-sm btn-success me-1">
-                            Về Danh Sách
-                        </Link>
-                        <Link to={`/admin/slider/update/${slider.id}`} className="btn btn-sm btn-warning me-1 ">
+                        <Link to="/admin/slider" className="btn btn-sm btn-success me-1">Về Danh Sách</Link>
+                        <Link to={`/admin/slider/update/${slider.id}`} className="btn btn-sm btn-warning me-1">
                             <FaEdit /> Sửa
                         </Link>
                         <button onClick={() => sliderDelete(slider.id)} className="btn btn-sm btn-danger me-1">
@@ -42,6 +40,7 @@ function SliderShow() {
                     </div>
                 </div>
             </div>
+
             <div className="card-body">
                 <table className="table table table-striped table-bordered table-hover">
                     <thead>
@@ -51,38 +50,18 @@ function SliderShow() {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>ID</td>
-                            <td>{id}  </td>
-                        </tr>
-                        <tr>
-                            <td>Tên</td>
-                            <td>{slider.name}  </td>
-                        </tr>
-                        <tr>
-                            <td>Link</td>
-                            <td>{slider.link}</td>
-                        </tr>
-                        <tr>
-                            <td>Sắp Xếp</td>
-                            <td>{slider.sort_order}  </td>
-                        </tr>
-                        <tr>
-                            <td>Vị Trí</td>
-                            <td>{slider.position}  </td>
-                        </tr>
-                        <tr>
-                            <td>Hình Ảnh</td>
-                            <td>{slider.image}  </td>
-                        </tr>
-                        <tr>
-                            <td>Trạng Thái</td>
-                            <td>{slider.status}  </td>
-                        </tr>
+                        <tr><td>ID</td><td>{id}</td></tr>
+                        <tr><td>Tên</td><td>{slider.name}</td></tr>
+                        <tr><td>Link</td><td>{slider.link}</td></tr>
+                        <tr><td>Sắp Xếp</td><td>{slider.sort_order}</td></tr>
+                        <tr><td>Vị Trí</td><td>{slider.position}</td></tr>
+                        <tr><td>Hình Ảnh</td><td>{slider.image}</td></tr>
+                        <tr><td>Trạng Thái</td><td>{slider.status}</td></tr>
                     </tbody>
                 </table>
             </div>
         </section>
     );
 }
+
 export default SliderShow;

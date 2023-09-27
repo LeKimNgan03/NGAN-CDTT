@@ -63,49 +63,77 @@ function SliderUpdate() {
                 <div className="card-header">
                     <div className="row">
                         <div className="col-md-6">
-                            <strong className="text-dark">
-                                THÊM SLIDER
-                            </strong>
+                            <strong className="text-dark">THÊM SLIDER</strong>
                         </div>
                         <div className="col-md-6 text-end">
-                            <button type="submit" className=" btn btn-sm btn-success me-1">
-                                Lưu
-                            </button>
+                            <button type="submit" className=" btn btn-sm btn-success me-1">Lưu</button>
                             <Link to="/admin/slider" className="btn btn-sm btn-info">Về Danh Sách</Link>
                         </div>
                     </div>
                 </div>
+
                 <div className="card-body">
                     <div className="row">
                         <div className="col-md-9 w-100">
                             <div className="mb-3">
                                 <label htmlFor="name">Tên</label>
-                                <input type="text" name="name" value={name} onChange={(e) => setName(e.target.value)} className="form-control" />
+                                <input
+                                    type="text"
+                                    name="name"
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                    className="form-control" />
                             </div>
+
                             <div className="mb-3">
                                 <label htmlFor="name">Link</label>
-                                <input type="text" name="name" value={link} onChange={(e) => setLink(e.target.value)} className="form-control" />
+                                <input
+                                    type="text"
+                                    name="name"
+                                    value={link}
+                                    onChange={(e) => setLink(e.target.value)}
+                                    className="form-control" />
                             </div>
+
                             <div className="mb-3">
                                 <label htmlFor="name">Vị Trí</label>
-                                <input type="text" name="name" value={position} onChange={(e) => setPosition(e.target.value)} className="form-control" />
+                                <input
+                                    type="text"
+                                    name="name"
+                                    value={position}
+                                    onChange={(e) => setPosition(e.target.value)}
+                                    className="form-control" />
                             </div>
+
                             <div className="mb-3">
                                 <label htmlFor="image">Hình Đại Diện</label>
-                                <input type="file" id="image" className="form-control" />
+                                <input
+                                    type="file"
+                                    id="image"
+                                    className="form-control" />
                             </div>
+
                             <div className="mb-3">
                                 <label htmlFor="sort_order">Sắp Xếp</label>
-                                <select name="sort_order" value={sort_order} className="form-control" onChange={(e) => setOrder(e.target.value)}>
+                                <select
+                                    name="sort_order"
+                                    value={sort_order}
+                                    className="form-control"
+                                    onChange={(e) => setOrder(e.target.value)}>
                                     <option value="0">None</option>
                                     {sliders.map((slider, index) => (
                                         <option key={index} value={slider.sort_order + 1}>{slider.name}</option>
                                     ))}
                                 </select>
                             </div>
+
                             <div className="mb-3">
                                 <label htmlFor="sort">Trạng Thái</label>
-                                <select name="sort" value={status} className="form-control" onChange={(e) => setStatus(e.target.value)}>
+                                <select
+                                    name="sort"
+                                    value={status}
+                                    className="form-control"
+                                    onChange={(e) => setStatus(e.target.value)}>
                                     <option value="1">Xuất bản</option>
                                     <option value="2">Chưa xuất bản</option>
                                 </select>
@@ -117,4 +145,5 @@ function SliderUpdate() {
         </form>
     );
 }
+
 export default SliderUpdate;
