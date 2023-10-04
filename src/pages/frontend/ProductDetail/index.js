@@ -1,10 +1,12 @@
 import { useParams } from 'react-router-dom';
+import { BsCartPlusFill } from 'react-icons/bs';
 import productservice from '../../../services/ProductService';
 import { useEffect, useState } from "react";
 import { urlImage } from '../../../config';
 import ProductItem from '../../../components/frontend/productitem';
 
 function ProductDetail() {
+    // Get Product
     const { slug } = useParams();
     const [product, setProducts] = useState([]);
     const [product_other, setProductOther] = useState([]);
@@ -18,7 +20,24 @@ function ProductDetail() {
                 }
             });
         }
-    }, [slug])
+    }, [slug]);
+
+    // // Get the input field and the two buttons
+    // const input = document.getElementById('my-input');
+    // const increaseBtn = document.getElementById('increase-btn');
+    // const decreaseBtn = document.getElementById('decrease-btn');
+
+    // // Add event listeners to the buttons
+    // increaseBtn.addEventListener('click', increaseValue);
+    // decreaseBtn.addEventListener('click', decreaseValue);
+
+    // // Functions to increase and decrease the value of the input field
+    // function increaseValue() {
+    //     input.value++;
+    // }
+    // function decreaseValue() {
+    //     input.value--;
+    // }
 
     return (
         <section className="maincontent my-4">
@@ -36,19 +55,28 @@ function ProductDetail() {
                         <h2 className="fw-light">{product.name}</h2>
                         <div className="row">
                             <div className="col-6 fs-5">
-                                <p className="fs-5">{product.price}đ</p>
+                                <p className="fs-5">{product.price} VND</p>
                             </div>
                         </div>
 
                         <div className="row">
-                            {/* Tăng giảm số lượng */}
-                            <div className="col-7">
-                                <button
-                                    className="btn w-100"
-                                    style={{ backgroundColor: `#FDE5EC`, color: `#E48586` }}>
-                                    Thêm vào giỏ hàng
-                                </button>
-                            </div>
+                            {/* Tăng giảm số lượng
+                            <form className="align-items-center" style={{width: `300px`}}>
+                                <span className="input-group-text bg-white" type="submit" id="increase-btn">+</span>
+                                <input className="form-control no-outline" type="number" id="my-input" value="0" />
+                                <span className="input-group-text bg-white" type="submit" id="decrease-btn">-</span>
+
+                                <div className="input-group-text bg-white" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
+                                <input className="form-control no-outline" type="number" id="number" value="0" />
+                                <div className="input-group-text bg-white" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
+                            </form> */}
+
+                            {/* Thêm sản phẩm */}
+                            <button
+                                className="btn w-50"
+                                style={{ backgroundColor: `#F8E8EE` }}>
+                                <BsCartPlusFill /> Thêm vào giỏ hàng
+                            </button>
                         </div>
                     </div>
 

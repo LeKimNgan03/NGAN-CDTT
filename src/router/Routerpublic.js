@@ -8,6 +8,13 @@ import BlogDetail from "../pages/frontend/BlogDetail";
 import ProductDetail from "../pages/frontend/ProductDetail";
 import ProductCategory from "../pages/frontend/ProductCategory";
 
+import ShoppingCart from "../pages/frontend/ShoppingCart";
+
+import Policy from "../pages/frontend/Policy/Policy";
+import PolicyDelivery from "../pages/frontend/Policy/PolicyDelivery";
+import PolicyReturn from "../pages/frontend/Policy/PolicyReturn";
+import PolicyPrivacy from "../pages/frontend/Policy/PolicyPrivacy";
+
 const RouterPublic = [
     { path: '/', component: Home },
     { path: '/gioi-thieu', component: Introduce },
@@ -19,9 +26,12 @@ const RouterPublic = [
     { path: '/blog-detail/:id', component: BlogDetail },
     { path: '/danh-muc-san-pham/:slug', component: ProductCategory },
 
-    // { path: '/chinh-sach-van-chuyen', component: ShipPolicy },
-    // { path: '/chinh-sach-bao-mat', component: WarrantyPolicy },
-    // { path: '/quy-dinh-chinh-sach', component: BuyPolicy },
+    { path: '/cart', component: ShoppingCart },
+
+    { path: '/chinh-sach-van-chuyen', component: PolicyDelivery },
+    { path: '/chinh-sach-doi-tra', component: PolicyReturn },
+    { path: '/chinh-sach-bao-mat', component: PolicyPrivacy },
+    { path: '/quy-dinh-chinh-sach', component: Policy },
 ];
 
 export default RouterPublic;

@@ -20,7 +20,7 @@ function ListCategory() {
             <ul className="list-group">
                 <h4
                     className="text-center p-2 fw-light text-uppercase"
-                    style={{ backgroundColor: `#E48586` }}>
+                    style={{ backgroundColor: `#F8E8EE` }}>
                     DANH MỤC SẢN PHẨM
                 </h4>
 

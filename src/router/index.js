@@ -1,9 +1,13 @@
-import RouterPublic from "./Routerpublic";
-import RouterPrivate from "./Routerprivate";
+import RouterPublic from "./RouterPublic";
+import RouterPrivate from "./RouterPrivate";
+import RouterLogin from "./RouterLogin";
+import RouterRegister from "./RouterRegister";
 
 const RouterSite = {
     RouterPublic,
-    RouterPrivate
+    RouterPrivate,
+    RouterLogin,
+    RouterRegister
 };
 
 export default RouterSite;

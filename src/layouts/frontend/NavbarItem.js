@@ -15,12 +15,12 @@ function NavbarItem(props) {
 
     return menus == null ? (
         <li className="nav-item">
-            <Link className="nav-link text-white" to={rowmenu.link}>{rowmenu.name}</Link>
+            <Link className="nav-link text-dark" to={rowmenu.link}>{rowmenu.name}</Link>
         </li>
     ) : (
         <li className="nav-item dropdown">
             <Link
-                className="nav-link dropdown-toggle text-white"
+                className="nav-link dropdown-toggle text-dark"
                 to={rowmenu.link} role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false">

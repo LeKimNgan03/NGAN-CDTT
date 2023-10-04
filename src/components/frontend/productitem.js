@@ -19,7 +19,7 @@ function ProductItem(props) {
                             {props.product.name}
                         </Link>
                     </h5>
-                    <p className="card-text text-center">{props.product.price}đ</p>
+                    <p className="card-text text-center">{props.product.price} VND</p>
                 </div>
             </div>
         </div>

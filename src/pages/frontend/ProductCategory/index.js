@@ -42,8 +42,8 @@ function ProductCategory() {
                             <div className="col-12 text-center">
                                 <button
                                     onClick={() => setLimit(limit + 4)}
-                                    className="btn btn-outline-light"
-                                    style={{ backgroundColor: `#FDE5EC`, color: `#E48586` }}>
+                                    className="btn btn-outline-light text-dark"
+                                    style={{ backgroundColor: `#F8E8EE` }}>
                                     Xem thêm
                                 </button>
                             </div>

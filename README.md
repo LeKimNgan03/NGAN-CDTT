@@ -13,3 +13,4 @@
     Tuần 1 từ 7/9->14/9: xây dựng frontend
 	Tuần 2 từ 14/9->21/9: xây dựng backend (API)
 	Tuần 3 từ 21/9->28/9: xây dựng frontend + backend
+	Tuần 4 từ 28/9->4/10: xây dựng frontend + backend + form login & register

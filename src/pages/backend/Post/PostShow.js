@@ -52,7 +52,6 @@ function PostShow() {
                     </thead>
                     <tbody>
                         <tr><td>ID</td><td>{id}</td></tr>
-                        <tr><td>Đề Tài</td><td>{post.topic_id}</td></tr>
                         <tr><td>Tiêu Đề</td><td>{post.title}</td></tr>
                         <tr><td>Slug</td><td>{post.slug}</td></tr>
                         <tr><td>Mô tả</td><td>{post.detail}</td></tr>
