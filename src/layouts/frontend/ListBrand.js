@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import categoryservice from "../../services/CategoryService";
+import brandservice from '../../services/BrandService';
 
-function ListCategory() {
-    const [categories, setCategory] = useState([]);
+function ListBrand() {
+    const [brands, setBrands] = useState([]);
     useEffect(() => {
         (async function () {
             try {
-                const result = await categoryservice.getCategoryByParentId(0);
-                setCategory(result.data.categories);
+                const result = await brandservice.getAll();
+                setBrands(result.data.brands);
             } catch (error) {
                 console.error(error);
             }
@@ -21,17 +21,15 @@ function ListCategory() {
                 <h4
                     className="text-center p-2 fw-light text-uppercase"
                     style={{ backgroundColor: `#F8E8EE` }}>
-                    SẢN PHẨM
+                    THƯƠNG HIỆU
                 </h4>
 
-                {categories.map((cat, index) => (
-                    <li
-                        className="list-group-item"
-                        key={index}>
+                {brands.map((brand, index) => (
+                    <li key={index} className="list-group-item">
                         <Link
                             className="text-decoration-none text-dark"
-                            to={`/danh-muc-san-pham/${cat.slug}`}>
-                            {cat.name}
+                            to={`/thuong-hieu/${brand.slug}`}>
+                            {brand.name}
                         </Link>
                     </li>
                 ))}
@@ -40,4 +38,4 @@ function ListCategory() {
     );
 }
 
-export default ListCategory;
+export default ListBrand;

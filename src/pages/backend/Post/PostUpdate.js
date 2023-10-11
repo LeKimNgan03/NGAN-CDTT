@@ -1,9 +1,20 @@
 import { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import postservice from '../../../services/PostService';
+import topicservice from "../../../services/TopicService";
 
 function PostUpdate() {
+    const [topics, setTopics] = useState([]);
+    useEffect(() => {
+        {
+            topicservice.getAll().then((result) => {
+                setTopics(result.data.topics);
+            });
+        }
+    }, []);
+
     const navigate = useNavigate();
+    const [topic_id, setTopicId] = useState(0);
     const [detail, setDetail] = useState('');
     const [type, setType] = useState('');
     const [metakey, setMetakey] = useState('');
@@ -17,6 +28,7 @@ function PostUpdate() {
         {
             postservice.getById(id).then((result) => {
                 const tmp = result.data.post;
+                setTopicId(tmp.topic_id);
                 setDetail(tmp.detail);
                 setType(tmp.type);
                 setTitle(tmp.title);
@@ -41,6 +53,7 @@ function PostUpdate() {
         event.preventDefault();
         const image = document.querySelector("#image");
         const post = new FormData();
+        post.append("topic_id", topic_id);
         post.append("title", title);
         post.append("detail", detail);
         post.append("metakey", metakey);
@@ -78,6 +91,20 @@ function PostUpdate() {
                 <div className="card-body">
                     <div className="row">
                         <div className="col-md-9">
+                            <div className="mb-3">
+                                <label htmlFor="topic_id">Đề Tài</label>
+                                <select
+                                    name="topic_id"
+                                    value={topic_id}
+                                    className="form-control"
+                                    onChange={(e) => setTopicId(e.target.value)}>
+                                    <option value="0">None</option>
+                                    {topics.map((topic, index) => (
+                                        <option key={index} value={topic.id}>{topic.name}</option>
+                                    ))}
+                                </select>
+                            </div>
+
                             <div className="mb-3">
                                 <label htmlFor="name">Tiêu Đề</label>
                                 <input

@@ -19,15 +19,17 @@ function Header() {
                                         Danh sách
                                     </a>
                                     <ul className="dropdown-menu">
+                                        <li><Link className="dropdown-item" to="/admin/brand">Brand</Link></li>
                                         <li><Link className="dropdown-item" to="/admin/category">Category</Link></li>
                                         <li><Link className="dropdown-item" to="/admin/contact">Contact</Link></li>
                                         <li><Link className="dropdown-item" to="/admin/menu">Menu</Link></li>
                                         <li><Link className="dropdown-item" to="/admin/order">Order</Link></li>
                                         <li><Link className="dropdown-item" to="/admin/orderdetail">OrderDetail</Link></li>
-                                        <li><Link className="dropdown-item" to="/admin/post">Post</Link></li>
                                         <li><Link className="dropdown-item" to="/admin/policy">Policy</Link></li>
+                                        <li><Link className="dropdown-item" to="/admin/post">Post</Link></li>
                                         <li><Link className="dropdown-item" to="/admin/product">Product</Link></li>
                                         <li><Link className="dropdown-item" to="/admin/slider">Slider</Link></li>
+                                        <li><Link className="dropdown-item" to="/admin/topic">Topic</Link></li>
                                         <li><Link className="dropdown-item" to="/admin/user">User</Link></li>
                                     </ul>
                                 </li>

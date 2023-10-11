@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import postservice from "../../../services/PostService";
+import topicservice from "../../../services/TopicService";
 import { useNavigate } from "react-router-dom";
 
 function PostCreate() {
@@ -14,6 +15,16 @@ function PostCreate() {
         }
     }, []);
 
+    const [topics, setTopics] = useState([]);
+    useEffect(() => {
+        {
+            topicservice.getAll().then((result) => {
+                setTopics(result.data.topics);
+            });
+        }
+    }, []);
+
+    const [topic_id, setTopicId] = useState(0);
     const [detail, setDetail] = useState('');
     const [type, setType] = useState('');
     const [metakey, setMetakey] = useState('');
@@ -25,6 +36,7 @@ function PostCreate() {
         event.preventDefault();
         const image = document.querySelector("#image");
         const post = new FormData();
+        post.append("topic_id", topic_id);
         post.append("title", title);
         post.append("detail", detail);
         post.append("metakey", metakey);
@@ -63,6 +75,20 @@ function PostCreate() {
                     <div className="row">
                         <div className="col-md-9">
                             <div className="mb-3">
+                                <label htmlFor="topic_id">Đề Tài</label>
+                                <select
+                                    name="topic_id"
+                                    value={topic_id}
+                                    className="form-control"
+                                    onChange={(e) => setTopicId(e.target.value)}>
+                                    <option value="0">None</option>
+                                    {topics.map((topic, index) => (
+                                        <option key={index} value={topic.id}>{topic.name}</option>
+                                    ))}
+                                </select>
+                            </div>
+
+                            <div className="mb-3">
                                 <label htmlFor="name">Tiêu Đề</label>
                                 <input
                                     type="text"
@@ -77,6 +103,7 @@ function PostCreate() {
                                 <textarea
                                     type="text"
                                     name="name"
+                                    rows={4}
                                     value={detail}
                                     onChange={(e) => setDetail(e.target.value)}
                                     className="form-control" />
@@ -114,6 +141,7 @@ function PostCreate() {
                                 <textarea
                                     type="text"
                                     name="name"
+                                    rows={3}
                                     value={metadesc}
                                     onChange={(e) => setMetadesc(e.target.value)}
                                     className="form-control" />

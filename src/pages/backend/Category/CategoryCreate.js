@@ -122,7 +122,7 @@ function CategoryCreate() {
                             <div className="mb-3">
                                 <label htmlFor="image">Hình đại diện</label>
                                 <input type="file" id="image" className="form-control" />
-                                <option value="0">None</option>
+                                {/* <option value="0">None</option> */}
                             </div>
 
                             <div className="mb-3">

@@ -1,5 +1,10 @@
 import DashBoard from "../pages/backend/DashBoard"
 
+import BrandCreate from "../pages/backend/Brand/BrandCreate";
+import BrandList from "../pages/backend/Brand/BrandList";
+import BrandShow from "../pages/backend/Brand/BrandShow";
+import BrandUpdate from "../pages/backend/Brand/BrandUpdate";
+
 import CategoryList from "../pages/backend/Category/CategoryList";
 import CategoryCreate from "../pages/backend/Category/CategoryCreate";
 import CategoryShow from "../pages/backend/Category/CategoryShow";
@@ -45,6 +50,11 @@ import SliderCreate from "../pages/backend/Slider/SliderCreate";
 import SliderShow from "../pages/backend/Slider/SliderShow";
 import SliderUpdate from "../pages/backend/Slider/SliderUpdate";
 
+import TopicList from "../pages/backend/Topic/TopicList";
+import TopicCreate from "../pages/backend/Topic/TopicCreate";
+import TopicShow from "../pages/backend/Topic/TopicShow";
+import TopicUpdate from "../pages/backend/Topic/TopicUpdate";
+
 import UserList from "../pages/backend/User/UserList";
 import UserCreate from "../pages/backend/User/UserCreate";
 import UserShow from "../pages/backend/User/UserShow";
@@ -52,6 +62,11 @@ import UserUpdate from "../pages/backend/User/UserUpdate";
 
 const RouterPrivate = [
     { path: '/admin', component: DashBoard },
+
+    { path: '/admin/brand', component: BrandList },
+    { path: '/admin/brand/create', component: BrandCreate },
+    { path: '/admin/brand/update/:id', component: BrandUpdate },
+    { path: '/admin/brand/show/:id', component: BrandShow },
 
     { path: '/admin/category', component: CategoryList },
     { path: '/admin/category/create', component: CategoryCreate },
@@ -97,6 +112,11 @@ const RouterPrivate = [
     { path: '/admin/slider/create', component: SliderCreate },
     { path: '/admin/slider/update/:id', component: SliderUpdate },
     { path: '/admin/slider/show/:id', component: SliderShow },
+
+    { path: '/admin/topic', component: TopicList },
+    { path: '/admin/topic/create', component: TopicCreate },
+    { path: '/admin/topic/update/:id', component: TopicUpdate },
+    { path: '/admin/topic/show/:id', component: TopicShow },
 
     { path: '/admin/user', component: UserList },
     { path: '/admin/user/create', component: UserCreate },

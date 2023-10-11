@@ -21,23 +21,23 @@ function BlogDetail() {
     }, [id])
 
     return (
-        <section className="maincontent my-3">
-            <div className="">
-                <h3 className="p-3 pb-0 fw-light text-uppercase">{post.title}</h3>
-
-                <hr className="mx-3" />
-
-                <div className="row my-3 mx-2">
-                    {/* <img src={`${urlImage}post/${post.image}`} className="img-fluid my-2" alt={post.image} /> */}
-                    <h5>{post.detail}</h5>
-                    <p>{post.metadesc}</p>
-                </div>
+        <section className="main-content my-3">
+            <div className="mx-3">
+                <h3 className="pb-0 fw-light text-uppercase">{post.title}</h3>
+                <hr />
+                <h5>{post.type}</h5>
+                <p>{post.detail}</p>
+                <img
+                    style={{ width: 1300, height: 510 }}
+                    src={`${urlImage}post/${post.image}`}
+                    className="container img-fluid d-flex justify-content-center my-3"
+                    alt={post.image} />
+                <h5>{post.metakey}</h5>
+                <p>{post.metadesc}</p>
 
                 {/* Other posts */}
                 <h3 className="p-3 pb-0 fw-light text-uppercase">Bài viết liên quan</h3>
-
                 <hr className="mx-3" />
-
                 <div className="row">
                     {post_other.map((post, index) => <PostItem post={post} key={index} />)}
                 </div>

@@ -44,8 +44,9 @@ function ProductList() {
                             <th style={{ width: 30 }} className="text-center">#</th>
                             <th style={{ width: 150 }} className="text-center">Hình</th>
                             <th style={{ width: 180 }} className="text-center">Tên Sản Phẩm</th>
-                            <th style={{ width: 200 }} className="text-center">Giá Tiền</th>
+                            <th style={{ width: 150 }} className="text-center">Giá Tiền</th>
                             <th style={{ width: 130 }} className="text-center">Danh Mục</th>
+                            <th style={{ width: 130 }} className="text-center">Thương Hiệu</th>
                             <th style={{ width: 140 }} className="text-center">Chức Năng</th>
                             <th style={{ width: 30 }} className="text-center">ID</th>
                         </tr>
@@ -63,6 +64,7 @@ function ProductList() {
                             <td className="text-center">{product.name}</td>
                             <td className="text-center">{product.price}</td>
                             <td className="text-center">{product.category_id}</td>
+                            <td className="text-center">{product.brand_id}</td>
                             <td className="text-center">
                                 <Link to={`/admin/product/show/${product.id}`} className="btn btn-sm btn-primary me-1">
                                     <FaRegEye />

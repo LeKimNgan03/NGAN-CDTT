@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import NavbarItem from './NavbarItem';
 
 function Header() {
+    // Get Menu
     const [menus, setMenus] = useState([]);
     useEffect(() => {
         {
@@ -13,6 +14,16 @@ function Header() {
             });
         }
     }, []);
+
+    // Shopping Cart Total
+    const [carts, setCarts] = useState();
+    function cartTotal() {
+        let cartTotal = 0;
+        for (let i = 0; i < carts.length; i++) {
+            cartTotal += carts[i].amount;
+        }
+        return cartTotal;
+    }
 
     return (
         <div style={{ backgroundColor: `#F8E8EE` }}>
@@ -59,7 +70,7 @@ function Header() {
                     {/* Cart */}
                     <Link className="btn mx-1" type="submit" to="/cart">
                         <BsCart2 />
-                        <span class="position-static top-0 start-100 translate-middle badge rounded-pill bg-secondary">0</span>
+                        <span className="position-static top-0 start-100 translate-middle badge rounded-pill bg-secondary">{cartTotal}</span>
                     </Link>
                 </div>
             </header>

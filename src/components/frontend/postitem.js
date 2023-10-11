@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { urlImage } from "../../config";
+import Moment from "react-moment";
 
 function PostItem(props) {
     return (
@@ -24,7 +25,9 @@ function PostItem(props) {
                                 {props.post.title}
                             </Link>
                         </h5>
-                        <p className="card-text my-2">{props.post.detail}</p>
+                        <p className="card-text my-2">
+                            Ngày đăng: <Moment format="DD/MM/YYYY">{props.post.created_at}</Moment>
+                        </p>
                     </div>
                 </div>
             </div>

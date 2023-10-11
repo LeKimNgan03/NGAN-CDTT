@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import productservice from "../../../services/ProductService";
 import categoryservice from "../../../services/CategoryService";
+import brandservice from "../../../services/BrandService";
 
 function ProductCreate() {
     const navigate = useNavigate();
@@ -23,9 +24,20 @@ function ProductCreate() {
         }
     }, []);
 
+    const [brands, setBrands] = useState([]);
+    useEffect(() => {
+        {
+            brandservice.getAll().then((result) => {
+                setBrands(result.data.brands);
+            });
+        }
+    }, []);
+
     const [category_id, setCategoryId] = useState(0);
+    const [brand_id, setBrandId] = useState(0);
     const [name, setName] = useState('');
     const [price, setPrice] = useState('');
+    const [pricesale, setPricesale] = useState('');
     const [qty, setQty] = useState();
     const [detail, setDetail] = useState('');
     const [metakey, setMetakey] = useState('');
@@ -37,8 +49,10 @@ function ProductCreate() {
         const image = document.querySelector("#image");
         const product = new FormData();
         product.append("category_id", category_id);
+        product.append("brand_id", brand_id);
         product.append("name", name);
         product.append("price", price);
+        product.append("pricesale", pricesale);
         product.append("qty", qty);
         product.append("detail", detail);
         product.append("metakey", metakey);
@@ -90,6 +104,20 @@ function ProductCreate() {
                             </div>
 
                             <div className="mb-3">
+                                <label htmlFor="brand_id">Thương Hiệu</label>
+                                <select
+                                    name="brand_id"
+                                    value={brand_id}
+                                    className="form-control"
+                                    onChange={(e) => setBrandId(e.target.value)}>
+                                    <option value="0">None</option>
+                                    {brands.map((brand, index) => (
+                                        <option key={index} value={brand.id}>{brand.name}</option>
+                                    ))}
+                                </select>
+                            </div>
+
+                            <div className="mb-3">
                                 <label htmlFor="name">Tên Sản Phẩm</label>
                                 <input
                                     type="text"
@@ -106,6 +134,16 @@ function ProductCreate() {
                                     name="name"
                                     value={price}
                                     onChange={(e) => setPrice(e.target.value)}
+                                    className="form-control" />
+                            </div>
+
+                            <div className="mb-3">
+                                <label htmlFor="name">Giá Giảm</label>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    value={pricesale}
+                                    onChange={(e) => setPricesale(e.target.value)}
                                     className="form-control" />
                             </div>
 

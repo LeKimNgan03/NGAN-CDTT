@@ -5,7 +5,7 @@ function PolicyReturn() {
     const [policy, setPolicy] = useState([]);
     useEffect(() => {
         {
-            policyservice.getById(2).then((result) => {
+            policyservice.getById(3).then((result) => {
                 setPolicy(result.data.policy);
             });
         }
@@ -15,7 +15,7 @@ function PolicyReturn() {
         <div className="row">
             <h4 className="p-4 pb-0 fw-light text-uppercase">{policy.title}</h4>
 
-            <h5 className="p-4 pb-0 pt-2">{policy.subtitle}</h5>
+            <p className="p-4 pb-0 pt-2">{policy.subtitle}</p>
 
             <p className="p-4 pb-0 pt-2">{policy.detail}</p>
         </div>

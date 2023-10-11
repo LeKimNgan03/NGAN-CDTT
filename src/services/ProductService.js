@@ -41,12 +41,17 @@ function getProductBySlug(slug) {
     return httpAxios.get(`product_detail/${slug}`);
 }
 
+function getProductBrandById(brand_id, limit) {
+    return httpAxios.get(`product_brand/${brand_id}/${limit}`);
+}
+
 const productservice = {
     getProductAll,
     getProductHome,
     getProductCategory,
     getProductCategoryById,
     getProductBySlug,
+    getProductBrandById,
     getAll,
     getById,
     create,

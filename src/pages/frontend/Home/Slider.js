@@ -37,6 +37,7 @@ function Slider() {
                     <span className="carousel-control-prev-icon" aria-hidden="true" />
                     <span className="visually-hidden">Previous</span>
                 </button>
+
                 <button
                     className="carousel-control-next"
                     type="button"

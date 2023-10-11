@@ -33,10 +33,20 @@ function getPostList(type, limit) {
     return httpAxios.get(`post_list/${type}/${limit}`);
 }
 
+function getPostByTopic(topic_id, page = 1) {
+    return httpAxios.get(`post_topic/${topic_id}/${page}`);
+}
+
+function getPostTopicById(topic_id, limit) {
+    return httpAxios.get(`post_topic/${topic_id}/${limit}`);
+}
+
 const postservice = {
     getPostAll,
     getPostById,
     getPostList,
+    getPostByTopic,
+    getPostTopicById,
     getAll,
     getById,
     create,

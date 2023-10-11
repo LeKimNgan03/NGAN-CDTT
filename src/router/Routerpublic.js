@@ -4,9 +4,14 @@ import Product from "../pages/frontend/Product";
 import Post from "../pages/frontend/Blog";
 import Contact from "../pages/frontend/Contact";
 
+import Login from "../pages/frontend/Account/Login";
+import Register from "../pages/frontend/Account/Register";
+
 import BlogDetail from "../pages/frontend/BlogDetail";
+import BlogTopic from "../pages/frontend/BlogTopic";
 import ProductDetail from "../pages/frontend/ProductDetail";
 import ProductCategory from "../pages/frontend/ProductCategory";
+import ProductBrand from "../pages/frontend/ProductBrand";
 
 import ShoppingCart from "../pages/frontend/ShoppingCart";
 
@@ -22,16 +27,21 @@ const RouterPublic = [
     { path: '/blog', component: Post },
     { path: '/lien-he', component: Contact },
 
-    { path: '/product-detail/:slug', component: ProductDetail },
+    { path: '/login', component: Login },
+    { path: '/register', component: Register },
+
     { path: '/blog-detail/:id', component: BlogDetail },
+    { path: '/danh-muc-bai-viet/:slug', component: BlogTopic },
     { path: '/danh-muc-san-pham/:slug', component: ProductCategory },
+    { path: '/thuong-hieu/:slug', component: ProductBrand },
+    { path: '/product-detail/:slug', component: ProductDetail },
 
     { path: '/cart', component: ShoppingCart },
 
     { path: '/chinh-sach-van-chuyen', component: PolicyDelivery },
     { path: '/chinh-sach-doi-tra', component: PolicyReturn },
     { path: '/chinh-sach-bao-mat', component: PolicyPrivacy },
-    { path: '/quy-dinh-chinh-sach', component: Policy },
+    { path: '/dieu-khoan', component: Policy },
 ];
 
 export default RouterPublic;

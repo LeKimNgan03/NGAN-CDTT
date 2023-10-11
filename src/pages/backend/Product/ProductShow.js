@@ -53,6 +53,7 @@ function ProductShow() {
                     <tbody>
                         <tr><td>ID</td><td>{id}</td></tr>
                         <tr><td>Danh Mục</td><td>{product.category_id}</td></tr>
+                        <tr><td>Thương Hiệu</td><td>{product.brand_id}</td></tr>
                         <tr><td>Tên Sản Phẩm</td><td>{product.name}</td></tr>
                         <tr><td>Slug</td><td>{product.slug}</td></tr>
                         <tr><td>Hình</td><td><img
@@ -61,6 +62,7 @@ function ProductShow() {
                             src={`${urlImage}product/${product.image}`}
                             alt={product.name} /></td></tr>
                         <tr><td>Giá Tiền</td><td>{product.price}</td></tr>
+                        <tr><td>Giá Giảm</td><td>{product.pricesale}</td></tr>
                         <tr><td>Số Lượng</td><td>{product.qty}</td></tr>
                         <tr><td>Chi Tiết</td><td>{product.detail}</td></tr>
                         <tr><td>Từ Khóa</td><td>{product.metakey}</td></tr>

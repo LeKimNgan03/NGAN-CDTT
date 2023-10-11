@@ -14,9 +14,10 @@ function Footer() {
                             <div className="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
                                 <h6 className="text-uppercase mb-4 font-weight-bold">douce muse</h6>
                                 <p>
-                                    Thông điệp mà chúng tôi muốn truyền tải đến bạn,
-                                    mỗi ngày của bạn hãy luôn rực rỡ, đầy năng lượng
-                                    và nhiều yêu thương như những bông hoa biết nói.
+                                    Trang phục bạn sẽ không bao giờ là hoàn chỉnh nếu không có nước hoa!
+                                </p>
+                                <p>
+                                    Nước hoa tốt thực sự là một loại cocktail mạnh hòa trộn những kỷ niệm và cảm xúc.
                                 </p>
                             </div>
 
@@ -37,7 +38,7 @@ function Footer() {
                                 <p><Link to="/chinh-sach-van-chuyen" className="text-dark text-decoration-none">Chính sách vận chuyển</Link></p>
                                 <p><Link to="/chinh-sach-doi-tra" className="text-dark text-decoration-none">Chính sách đổi trả</Link></p>
                                 <p><Link to="/chinh-sach-bao-mat" className="text-dark text-decoration-none">Chính sách bảo mật</Link></p>
-                                <p><Link to="/quy-dinh-chinh-sach" className="text-dark text-decoration-none">Quy định & chính sách</Link></p>
+                                <p><Link to="/dieu-khoan" className="text-dark text-decoration-none">Điều khoản dịch vụ</Link></p>
                             </div>
 
                             <hr className="w-100 clearfix d-md-none" />

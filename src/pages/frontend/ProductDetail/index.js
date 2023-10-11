@@ -1,16 +1,16 @@
-import { useParams } from 'react-router-dom';
-import { BsCartPlusFill } from 'react-icons/bs';
-import productservice from '../../../services/ProductService';
 import { useEffect, useState } from "react";
 import { urlImage } from '../../../config';
+import { useParams } from 'react-router-dom';
+import { BsCartPlusFill } from 'react-icons/bs';
+import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
+import productservice from '../../../services/ProductService';
 import ProductItem from '../../../components/frontend/productitem';
 
 function ProductDetail() {
-    // Get Product
+    // Get Product Detail
     const { slug } = useParams();
     const [product, setProducts] = useState([]);
     const [product_other, setProductOther] = useState([]);
-
     useEffect(() => {
         {
             productservice.getProductBySlug(slug).then((result) => {
@@ -22,73 +22,117 @@ function ProductDetail() {
         }
     }, [slug]);
 
-    // // Get the input field and the two buttons
-    // const input = document.getElementById('my-input');
-    // const increaseBtn = document.getElementById('increase-btn');
-    // const decreaseBtn = document.getElementById('decrease-btn');
+    // Format Number Price
+    function renderNumber(number) {
+        // Using the ternary operator to avoid the error
+        const digits = (number || '').toString().split("");
+        let result = "";
+        for (let i = 0; i < digits.length; i++) {
+            result += digits[i];
+            if (i % 3 === 0) {
+                result += ".";
+            }
+        }
+        return result;
+    }
 
-    // // Add event listeners to the buttons
-    // increaseBtn.addEventListener('click', increaseValue);
-    // decreaseBtn.addEventListener('click', decreaseValue);
+    // Add product to shopping cart 
+    const [cart, setCart] = useState([]);
+    useEffect(() => {
+        const cartData = localStorage.getItem('cart');
+        if (cartData) {
+            setCart(JSON.parse(cartData));
+        }
+    }, []);
 
-    // // Functions to increase and decrease the value of the input field
-    // function increaseValue() {
-    //     input.value++;
-    // }
-    // function decreaseValue() {
-    //     input.value--;
-    // }
+    const addToCart = () => {
+        const productCopy = { ...product };
+        const updatedCart = [...cart, productCopy];
+        setCart(updatedCart);
+        localStorage.setItem('cart', JSON.stringify(updatedCart));
+    };
+
+    // Create an Increment and Decrement Button
+    const [amount, setAmount] = useState(1);
+
+    const increaseValue = () => {
+        setAmount(prevAmount => prevAmount + 1);
+    }
+
+    const decreaseValue = () => {
+        if (amount > 1) {
+            setAmount(prevAmount => prevAmount - 1);
+        } else {
+            return amount;
+        }
+    }
 
     return (
-        <section className="maincontent my-4">
+        <section className="main-content my-4">
             <div className="product-detail mx-2">
-                <div className="row my-3">
-                    <div className="col-md-5">
+                <div className="container d-flex justify-content-center my-3">
+                    {/* Img */}
+                    <div className="col-md-6">
                         <img
                             style={{ width: 600 }}
                             src={`${urlImage}product/${product.image}`}
-                            className="img-fluid"
+                            className="img-fluid border"
                             alt={product.image} />
                     </div>
 
-                    <div className="col-md-6">
+                    {/* Detail */}
+                    <div className="col-md-6 mx-2">
                         <h2 className="fw-light">{product.name}</h2>
-                        <div className="row">
-                            <div className="col-6 fs-5">
-                                <p className="fs-5">{product.price} VND</p>
-                            </div>
+
+                        <hr />
+
+                        <div className="col-6 fs-5">
+                            <p className="fs-5">{renderNumber(product.price)}VNĐ</p>
                         </div>
 
-                        <div className="row">
-                            {/* Tăng giảm số lượng
-                            <form className="align-items-center" style={{width: `300px`}}>
-                                <span className="input-group-text bg-white" type="submit" id="increase-btn">+</span>
-                                <input className="form-control no-outline" type="number" id="my-input" value="0" />
-                                <span className="input-group-text bg-white" type="submit" id="decrease-btn">-</span>
+                        <div className="d-flex">
+                            {/* Increment and Decrement Button */}
+                            <div
+                                className="input-group border rounded-pill justify-content-center"
+                                style={{ width: 120 }}>
+                                <button
+                                    className="input-text-group btn btn-minus"
+                                    onClick={decreaseValue}><AiOutlineMinus />
+                                </button>
+                                <div className="p-2 text-center">{amount}</div>
+                                <button
+                                    className="input-text-group btn btn-plus"
+                                    onClick={increaseValue}><AiOutlinePlus />
+                                </button>
+                            </div>
 
-                                <div className="input-group-text bg-white" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
-                                <input className="form-control no-outline" type="number" id="number" value="0" />
-                                <div className="input-group-text bg-white" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
-                            </form> */}
-
-                            {/* Thêm sản phẩm */}
+                            {/* Add To Cart Button */}
                             <button
-                                className="btn w-50"
-                                style={{ backgroundColor: `#F8E8EE` }}>
+                                onClick={() => addToCart(ProductItem)}
+                                className="btn rounded-5 mx-3"
+                                style={{ backgroundColor: `#A73121`, color: `#fff` }}>
                                 <BsCartPlusFill /> Thêm vào giỏ hàng
                             </button>
                         </div>
                     </div>
-
-                    <div className="my-3">
-                        <img
-                            style={{ width: 200 }}
-                            src={`${urlImage}product/${product.image}`}
-                            className="img-fluid"
-                            alt={product.image} />
-                    </div>
                 </div>
 
+                {/* Description */}
+                <div className="container my-4">
+                    <h5 className="text-center fw-light">Mô tả</h5>
+
+                    <hr />
+
+                    <p className="">{product.detail}</p>
+
+                    <img
+                        style={{ width: 300 }}
+                        src={`${urlImage}product/${product.image}`}
+                        className="img-fluid"
+                        alt={product.image} />
+                </div>
+
+                {/* Other Product */}
                 <h3 className="p-3 pb-0 fw-light text-uppercase text-center">Sản phẩm liên quan</h3>
 
                 <div className="row">
