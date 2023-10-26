@@ -15,15 +15,8 @@ function Header() {
         }
     }, []);
 
-    // Shopping Cart Total
-    const [carts, setCarts] = useState();
-    function cartTotal() {
-        let cartTotal = 0;
-        for (let i = 0; i < carts.length; i++) {
-            cartTotal += carts[i].amount;
-        }
-        return cartTotal;
-    }
+    // Search
+    const [key, setKey] = useState("");
 
     return (
         <div style={{ backgroundColor: `#F8E8EE` }}>
@@ -36,8 +29,18 @@ function Header() {
 
                     {/* Search */}
                     <form className="input-group w-50 me-lg-auto" role="search">
-                        <input type="text" className="form-control" placeholder="Tìm kiếm..." aria-label="Search" />
-                        <span className="input-group-text" type="submit" onClick={() => window.location = "/"}><BsSearch /></span>
+                        <input
+                            type="text"
+                            value={key}
+                            onChange={(e) => setKey(e.target.value)}
+                            className="form-control"
+                            placeholder="Tìm kiếm..."
+                            aria-label="Search" />
+                        <span
+                            className="input-group-text"
+                            type="submit">
+                            <Link className="text-dark" to={`/tim-kiem/${key}`}><BsSearch /></Link>
+                        </span>
                     </form>
 
                     {/* Login & Register */}
@@ -70,7 +73,7 @@ function Header() {
                     {/* Cart */}
                     <Link className="btn mx-1" type="submit" to="/cart">
                         <BsCart2 />
-                        <span className="position-static top-0 start-100 translate-middle badge rounded-pill bg-secondary">{cartTotal}</span>
+                        <span className="position-static top-0 start-100 translate-middle badge rounded-pill bg-secondary">0</span>
                     </Link>
                 </div>
             </header>

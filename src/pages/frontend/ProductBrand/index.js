@@ -39,7 +39,7 @@ function ProductBrand() {
                             {products.map((product, index) => <ProductItem product={product} key={index} />)}
                         </div>
 
-                        <div className="row">
+                        {/* <div className="row">
                             <div className="col-12 text-center">
                                 <button
                                     onClick={() => setLimit(limit + 4)}
@@ -48,7 +48,7 @@ function ProductBrand() {
                                     Xem thêm
                                 </button>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

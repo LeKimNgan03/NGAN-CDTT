@@ -52,7 +52,7 @@ function BrandCreate() {
                             <strong className="text-dark">THÊM THƯƠNG HIỆU</strong>
                         </div>
                         <div className="col-md-6 text-end">
-                            <button type="submit" className=" btn btn-sm btn-success me-1">Lưu</button>
+                            <button type="submit" className="btn btn-sm btn-success me-1">Lưu</button>
                             <Link to="/admin/brand" className="btn btn-sm btn-info">Về Danh Sách</Link>
                         </div>
                     </div>
@@ -94,15 +94,15 @@ function BrandCreate() {
 
                         <div className="col-md-3">
                             <div className="mb-3">
-                                <label htmlFor="sort_order">Sắp Xếp</label>
+                                <label htmlFor="sort-order">Sắp Xếp</label>
                                 <select
-                                    name="sort_order"
+                                    name="sort-order"
                                     value={sort_order}
                                     className="form-control"
                                     onChange={(e) => setSortOrder(e.target.value)}>
                                     <option value="0">None</option>
                                     {brands.map((brand, index) => (
-                                        <option key={index} value={brand.sort_order + 1}>{brand.name}</option>
+                                        <option key={index} value={brand.sort_order + 1}>Sau {brand.name}</option>
                                     ))}
                                 </select>
                             </div>

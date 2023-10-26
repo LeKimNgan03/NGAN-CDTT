@@ -6,6 +6,7 @@ import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import productservice from '../../../services/ProductService';
 import ProductItem from '../../../components/frontend/productitem';
 
+import StarRating from "../../../layouts/frontend/StarRating";
 function ProductDetail() {
     // Get Product Detail
     const { slug } = useParams();
@@ -67,6 +68,9 @@ function ProductDetail() {
         }
     }
 
+    // Rating 5 stars
+    const [rating, setRating] = useState(0);
+
     return (
         <section className="main-content my-4">
             <div className="product-detail mx-2">
@@ -114,6 +118,15 @@ function ProductDetail() {
                                 <BsCartPlusFill /> Thêm vào giỏ hàng
                             </button>
                         </div>
+
+                        <div className="my-3">
+                            CAM KẾT KHI MUA SẮM
+                            <ul className="list-unstyled">
+                                <li>- Tư vấn nhiệt tình & tận tâm.</li>
+                                <li>- Đảm bảo nguồn gốc và chất lượng sản phẩm.</li>
+                                <li>- Miễn phí đổi trả nếu sản phẩm có vấn đề.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
@@ -132,14 +145,68 @@ function ProductDetail() {
                         alt={product.image} />
                 </div>
 
+                {/* Comment */}
+                <div className="container my-4">
+                    <h5 className="text-center fw-light">Đánh giá</h5>
+
+                    <div className="row">
+                        <div className="col-md-12">
+                            <div className="card">
+                                <div className="card-body">
+                                    <div className="d-flex">
+                                        <p className="">Đánh giá của bạn về sản phẩm: </p>
+                                        <div className="mx-2">
+                                            <StarRating rating={rating} onRating={(rate) => setRating(rate)} />
+                                        </div>
+                                    </div>
+                                    <form action="/action_page.php" method="post" className="mt-1">
+                                        <div className="mb-3">
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                id="name"
+                                                placeholder="Nhập họ tên của bạn" />
+                                        </div>
+
+                                        <div className="mb-3">
+                                            <input
+                                                type="email"
+                                                className="form-control"
+                                                id="email"
+                                                placeholder="Nhập email của bạn" />
+                                        </div>
+
+                                        <div className="mb-3">
+                                            <textarea
+                                                className="form-control"
+                                                rows={4}
+                                                id="comment"
+                                                placeholder="Nhập nội dung đánh giá của bạn về sản phẩm này" />
+                                        </div>
+
+                                        <div className="mb-3">
+                                            <button
+                                                type="submit"
+                                                className="btn btn-outline-light text-dark"
+                                                style={{ backgroundColor: `#F8E8EE` }}>
+                                                Gửi đánh giá
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 {/* Other Product */}
                 <h3 className="p-3 pb-0 fw-light text-uppercase text-center">Sản phẩm liên quan</h3>
 
                 <div className="row">
                     {product_other.map((product, index) => <ProductItem product={product} key={index} />)}
                 </div>
-            </div>
-        </section>
+            </div >
+        </section >
     );
 }
 

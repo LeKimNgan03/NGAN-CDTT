@@ -43,11 +43,10 @@ function MenuUpdate() {
         menu.append("type", type);
         menu.append("status", status);
         menu.append("sort_order", sort_order);
-        await menuservice.update(menu, id)
-            .then((res) => {
-                alert(res.data.message)
-                navigate('/admin/menu', { replace: true })
-            });
+        await menuservice.update(menu, id).then((res) => {
+            alert(res.data.message)
+            navigate('/admin/menu', { replace: true })
+        });
     }
 
     return (

@@ -24,7 +24,7 @@ function ProductCategory() {
             }
         })();
     }, [limit, slug]);
-
+    
     return (
         <section className="main-content">
             <div className="product-category">

@@ -15,3 +15,4 @@
 	Tuần 3 từ 21/9->28/9: xây dựng frontend + backend
 	Tuần 4 từ 28/9->4/10: xây dựng frontend + backend + form login & register
 	Tuần 5 từ 4/10->11/10: xây dựng frontend(giỏ hàng) + chức năng(tăng giảm số lượng sản phẩm, thêm sản phẩm)
+	Tuần 6 từ 11/10->18/10: xây dựng frontend

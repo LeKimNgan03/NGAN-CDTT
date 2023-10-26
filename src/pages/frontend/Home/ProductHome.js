@@ -15,21 +15,19 @@ function ProductHome(props) {
 
     if (products != null) {
         return (
-            <div className="">
-                <div className="product-category mx-2">
-                    <h4 className="p-3 pb-0 fw-bold text-uppercase text-center text-dark mt-3">
-                        <Link
-                            className="text-decoration-none text-dark"
-                            to={`/danh-muc-san-pham/${props.category.slug}`}>
-                            {props.category.name}
-                        </Link>
-                    </h4>
+            <div className="product-category mx-2">
+                <h4 className="p-3 pb-0 fw-bold text-uppercase text-center text-dark mt-3">
+                    <Link
+                        className="text-decoration-none text-dark"
+                        to={`/danh-muc-san-pham/${props.category.slug}`}>
+                        {props.category.name}
+                    </Link>
+                </h4>
 
-                    <hr className="" />
+                <hr />
 
-                    <div className="row">
-                        {products.map((product, index) => <ProductItem product={product} key={index} />)}
-                    </div>
+                <div className="row">
+                    {products.map((product, index) => <ProductItem product={product} key={index} />)}
                 </div>
             </div>
         );

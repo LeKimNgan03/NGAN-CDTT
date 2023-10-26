@@ -45,6 +45,10 @@ function getProductBrandById(brand_id, limit) {
     return httpAxios.get(`product_brand/${brand_id}/${limit}`);
 }
 
+function getSearch(key) {
+    return httpAxios.get(`search/${key}`);
+}
+
 const productservice = {
     getProductAll,
     getProductHome,
@@ -52,6 +56,7 @@ const productservice = {
     getProductCategoryById,
     getProductBySlug,
     getProductBrandById,
+    getSearch,
     getAll,
     getById,
     create,

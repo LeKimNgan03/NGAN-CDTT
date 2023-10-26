@@ -28,6 +28,7 @@ function Header() {
                                         <li><Link className="dropdown-item" to="/admin/policy">Policy</Link></li>
                                         <li><Link className="dropdown-item" to="/admin/post">Post</Link></li>
                                         <li><Link className="dropdown-item" to="/admin/product">Product</Link></li>
+                                        <li><Link className="dropdown-item" to="/admin/productsale">ProductSale</Link></li>
                                         <li><Link className="dropdown-item" to="/admin/slider">Slider</Link></li>
                                         <li><Link className="dropdown-item" to="/admin/topic">Topic</Link></li>
                                         <li><Link className="dropdown-item" to="/admin/user">User</Link></li>

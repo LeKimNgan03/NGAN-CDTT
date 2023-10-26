@@ -28,11 +28,10 @@ function MenuCreate() {
         menu.append("type", type);
         menu.append("status", status);
         menu.append("sort_order", sort_order);
-        await menuservice.create(menu)
-            .then((res) => {
-                alert(res.data.message)
-                navigate('/admin/menu', { replace: true })
-            });
+        await menuservice.create(menu).then((res) => {
+            alert(res.data.message)
+            navigate('/admin/menu', { replace: true })
+        });
     }
 
     return (
@@ -44,7 +43,7 @@ function MenuCreate() {
                             <strong className="text-dark">THÊM MENU</strong>
                         </div>
                         <div className="col-md-6 text-end">
-                            <button type="submit" className=" btn btn-sm btn-success me-1">Lưu</button>
+                            <button type="submit" className="btn btn-sm btn-success me-1">Lưu</button>
                             <Link to="/admin/menu" className="btn btn-sm btn-info">Về Danh Sách</Link>
                         </div>
                     </div>
@@ -85,19 +84,20 @@ function MenuCreate() {
                         </div>
 
                         <div className="mb-3">
-                            <div className="mb-3">
-                                <label htmlFor="sort_order">Sắp Xếp</label>
-                                <select
-                                    name="sort_order"
-                                    value={sort_order} className="form-control"
-                                    onChange={(e) => setSortOrder(e.target.value)}>
-                                    <option value="0">None</option>
-                                    {menus.map((menu, index) => (
-                                        <option key={index} value={menu.sort_order + 1}>{menu.name}</option>
-                                    ))}
-                                </select>
-                            </div>
+                            <label htmlFor="sort_order">Sắp Xếp</label>
+                            <select
+                                name="sort_order"
+                                value={sort_order}
+                                className="form-control"
+                                onChange={(e) => setSortOrder(e.target.value)}>
+                                <option value="0">None</option>
+                                {menus.map((menu, index) => (
+                                    <option key={index} value={menu.sort_order + 1}>Sau {menu.name}</option>
+                                ))}
+                            </select>
+                        </div>
 
+                        <div className="mb-3">
                             <label htmlFor="sort">Trạng Thái</label>
                             <select
                                 name="sort"

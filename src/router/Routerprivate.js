@@ -45,6 +45,11 @@ import ProductCreate from "../pages/backend/Product/ProductCreate";
 import ProductShow from "../pages/backend/Product/ProductShow";
 import ProductUpdate from "../pages/backend/Product/ProductUpdate";
 
+import ProductsaleList from "../pages/backend/Productsale/ProductsaleList";
+import ProductsaleCreate from "../pages/backend/Productsale/ProductsaleCreate";
+import ProductsaleShow from "../pages/backend/Productsale/ProductsaleShow";
+import ProductsaleUpdate from "../pages/backend/Productsale/ProductsaleUpdate";
+
 import SliderList from "../pages/backend/Slider/SliderList";
 import SliderCreate from "../pages/backend/Slider/SliderCreate";
 import SliderShow from "../pages/backend/Slider/SliderShow";
@@ -107,6 +112,11 @@ const RouterPrivate = [
     { path: '/admin/product/create', component: ProductCreate },
     { path: '/admin/product/update/:id', component: ProductUpdate },
     { path: '/admin/product/show/:id', component: ProductShow },
+
+    { path: '/admin/productsale', component: ProductsaleList },
+    { path: '/admin/productsale/create', component: ProductsaleCreate },
+    { path: '/admin/productsale/update/:id', component: ProductsaleUpdate },
+    { path: '/admin/productsale/show/:id', component: ProductsaleShow },
 
     { path: '/admin/slider', component: SliderList },
     { path: '/admin/slider/create', component: SliderCreate },

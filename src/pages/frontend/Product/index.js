@@ -5,13 +5,14 @@ import { useEffect, useState } from "react";
 function Product() {
     const [products, setProducts] = useState([]);
     const [limit, setLimit] = useState(8);
+
     useEffect(() => {
         {
             productservice.getProductAll(limit, 1).then((result) => {
                 setProducts(result.data.products);
             });
         }
-    }, [limit])
+    }, [limit]);
 
     return (
         <div>
@@ -26,7 +27,7 @@ function Product() {
             <div className="row my-1">
                 <div className="col-12 text-center">
                     <button
-                        onClick={() => setLimit(limit + 4)}
+                        onClick={() => setLimit(limit + 8)}
                         className="btn btn-outline-light text-dark"
                         style={{ backgroundColor: `#F8E8EE` }}>
                         Xem thêm

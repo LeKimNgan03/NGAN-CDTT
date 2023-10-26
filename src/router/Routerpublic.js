@@ -20,6 +20,8 @@ import PolicyDelivery from "../pages/frontend/Policy/PolicyDelivery";
 import PolicyReturn from "../pages/frontend/Policy/PolicyReturn";
 import PolicyPrivacy from "../pages/frontend/Policy/PolicyPrivacy";
 
+import Search from "../pages/frontend/Search";
+
 const RouterPublic = [
     { path: '/', component: Home },
     { path: '/gioi-thieu', component: Introduce },
@@ -42,6 +44,8 @@ const RouterPublic = [
     { path: '/chinh-sach-doi-tra', component: PolicyReturn },
     { path: '/chinh-sach-bao-mat', component: PolicyPrivacy },
     { path: '/dieu-khoan', component: Policy },
+
+    { path: '/tim-kiem/:key', component: Search },
 ];
 
 export default RouterPublic;

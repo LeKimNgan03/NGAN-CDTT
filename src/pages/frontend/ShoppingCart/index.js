@@ -56,12 +56,9 @@ function ShoppingCart() {
     return (
         <section className="shopping-cart mx-2">
             <h4 className="p-3 pb-0 fw-bold text-uppercase text-center">Giỏ hàng của bạn</h4>
-
             <div className="container my-4">
                 {cart.map((product, index) => {
-                    return index === null ? (
-                        <p key={index}>Không có sản phẩm nào trong giỏ hàng. Quay lại cửa hàng để tiếp tục mua sắm.</p>
-                    ) : (
+                    return index != null ? (
                         <table className="table">
                             <thead>
                                 <tr>
@@ -121,9 +118,10 @@ function ShoppingCart() {
                                 </tr>
                             </tbody>
                         </table>
+                    ) : (
+                        <p key={index}>Không có sản phẩm nào trong giỏ hàng. Quay lại cửa hàng để tiếp tục mua sắm.</p>
                     );
                 })}
-
                 <div className="border rounded-5 p-3">
                     <h4 className="text-end">Tổng tiền: VNĐ</h4>
                     <div className="d-flex justify-content-end mt-3">
@@ -137,7 +135,6 @@ function ShoppingCart() {
                 </div>
             </div>
         </section>
-
     );
 }
 

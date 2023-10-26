@@ -68,7 +68,7 @@ function BrandUpdate() {
                             <strong className="text-dark">CẬP NHẬT THƯƠNG HIỆU</strong>
                         </div>
                         <div className="col-md-6 text-end">
-                            <button type="submit" className=" btn btn-sm btn-success me-1">Lưu</button>
+                            <button type="submit" className="btn btn-sm btn-success me-1">Lưu</button>
                             <Link to="/admin/brand" className="btn btn-sm btn-info">Về Danh Sách</Link>
                         </div>
                     </div>
@@ -118,7 +118,7 @@ function BrandUpdate() {
                                     onChange={(e) => setSortOrder(e.target.value)}>
                                     <option value="0">None</option>
                                     {brands.map((brand, index) => (
-                                        <option key={index} value={brand.sort_order + 1}>{brand.name}</option>
+                                        <option key={index} value={brand.sort_order + 1}>Sau {brand.name}</option>
                                     ))}
                                 </select>
                             </div>
