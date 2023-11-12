@@ -6,7 +6,7 @@ function ProductSale(props) {
     const [productsales, setProducts] = useState([]);
     useEffect(() => {
         {
-            productsaleservice.getProductSaleHome(8, props.category.id).then((result) => {
+            productsaleservice.getProductSaleHome(8, props.product.id).then((result) => {
                 setProducts(result.data.productsales);
             });
         }

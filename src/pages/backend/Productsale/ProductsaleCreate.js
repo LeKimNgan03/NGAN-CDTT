@@ -34,7 +34,6 @@ function ProductsaleCreate() {
     }, []);
 
     const [product_id, setProductId] = useState(0);
-    const [category_id, setCategoryId] = useState(0);
     const [pricesale, setPricesale] = useState('');
     const [qty, setQty] = useState();
     const [datebegin, setDatebegin] = useState("");
@@ -44,7 +43,6 @@ function ProductsaleCreate() {
         event.preventDefault();
         const productsale = new FormData();
         productsale.append("product_id", product_id);
-        productsale.append("category_id", category_id);
         productsale.append("pricesale", pricesale);
         productsale.append("qty", qty);
         productsale.append("datebegin", datebegin);
@@ -83,20 +81,6 @@ function ProductsaleCreate() {
                                     onChange={(e) => setProductId(e.target.value)}>
                                     <option value="0">None</option>
                                     {products.map((cat, index) => (
-                                        <option key={index} value={cat.id}>{cat.name}</option>
-                                    ))}
-                                </select>
-                            </div>
-
-                            <div className="mb-3">
-                                <label htmlFor="category_id">Danh Mục</label>
-                                <select
-                                    name="category_id"
-                                    value={category_id}
-                                    className="form-control"
-                                    onChange={(e) => setCategoryId(e.target.value)}>
-                                    <option value="0">None</option>
-                                    {categorys.map((cat, index) => (
                                         <option key={index} value={cat.id}>{cat.name}</option>
                                     ))}
                                 </select>

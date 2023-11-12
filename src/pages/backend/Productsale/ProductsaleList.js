@@ -42,7 +42,6 @@ function ProductsaleList() {
                         <tr>
                             <th style={{ width: 30 }} className="text-center">#</th>
                             <th style={{ width: 150 }} className="text-center">Mã Sản Phẩm</th>
-                            <th style={{ width: 150 }} className="text-center">Danh mục</th>
                             <th style={{ width: 150 }} className="text-center">Giá Giảm</th>
                             <th style={{ width: 150 }} className="text-center">Ngày Bắt đầu</th>
                             <th style={{ width: 150 }} className="text-center">Ngày Kết thúc</th>
@@ -54,7 +53,6 @@ function ProductsaleList() {
                         {productsales.map((productsale, index) => <tr key={index}>
                             <td className="text-center"><input type="checkbox" /></td>
                             <td className="text-center">{productsale.product_id}</td>
-                            <td className="text-center">{productsale.category_id}</td>
                             <td className="text-center">{productsale.pricesale}</td>
                             <td className="text-center">{productsale.date_begin}</td>
                             <td className="text-center">{productsale.date_end}</td>

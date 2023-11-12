@@ -52,7 +52,6 @@ function ProductsaleShow() {
                     <tbody>
                         <tr><td>ID</td><td>{id}</td></tr>
                         <tr><td>Mã Sản Phẩm</td><td>{productsale.product_id}</td></tr>
-                        <tr><td>Danh mục</td><td>{productsale.category_id}</td></tr>
                         <tr><td>Giá Giảm</td><td>{productsale.pricesale}</td></tr>
                         <tr><td>Số Lượng</td><td>{productsale.qty}</td></tr>
                         <tr><td>Ngày Bắt đầu</td><td>{productsale.date_begin}</td></tr>
