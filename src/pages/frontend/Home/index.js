@@ -21,7 +21,7 @@ function Home() {
             </div>
 
             <div className="product-sale">
-                {/* <ProductSale /> */}
+                <ProductSale />
             </div>
 
             <div className="product">
