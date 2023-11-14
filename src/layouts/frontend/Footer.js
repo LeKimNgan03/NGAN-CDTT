@@ -6,7 +6,7 @@ function Footer() {
     return (
         <footer
             className="text-center text-lg-start"
-            style={{ backgroundColor: `#F8E8EE` }}>
+            style={{ backgroundColor: `#E8E2E2` }}>
             <div className="container p-6 pb-0 p-2">
                 <section className="">
                     <div className="row">

@@ -53,6 +53,8 @@ function MenuShow() {
                         <tr><td>ID</td><td>{id}</td></tr>
                         <tr><td>Tên Thương Hiệu</td><td>{menu.name}</td></tr>
                         <tr><td>Link</td><td>{menu.link}</td></tr>
+                        <tr><td>Vị Trí</td><td>{menu.position}</td></tr>
+                        <tr><td>Danh Mục Cha</td><td>{menu.parent_id}</td></tr>
                         <tr><td>Sắp Xếp</td><td>{menu.sort_order}</td></tr>
                         <tr><td>Trạng Thái</td><td>{menu.status}</td></tr>
                     </tbody>

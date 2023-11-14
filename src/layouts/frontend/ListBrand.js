@@ -20,7 +20,7 @@ function ListBrand() {
             <ul className="list-group">
                 <h4
                     className="text-center p-2 fw-light text-uppercase"
-                    style={{ backgroundColor: `#F8E8EE` }}>
+                    style={{ backgroundColor: `#E8E2E2` }}>
                     THƯƠNG HIỆU
                 </h4>
 

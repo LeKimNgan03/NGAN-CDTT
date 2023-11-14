@@ -41,9 +41,10 @@ function MenuList() {
                     <thead>
                         <tr>
                             <th style={{ width: 50 }} className="text-center">#</th>
-                            <th style={{ width: 180 }} className="text-center">Tên Menu</th>
-                            <th style={{ width: 180 }} className="text-center">Link</th>
-                            <th style={{ width: 140 }} className="text-center">Chức Năng</th>
+                            <th style={{ width: 160 }} className="text-center">Tên Menu</th>
+                            <th style={{ width: 200 }} className="text-center">Link</th>
+                            <th style={{ width: 100 }} className="text-center">Danh mục cha</th>
+                            <th style={{ width: 120 }} className="text-center">Chức Năng</th>
                             <th style={{ width: 30 }} className="text-center">ID</th>
                         </tr>
                     </thead>
@@ -52,6 +53,7 @@ function MenuList() {
                             <td className="text-center"><input type="checkbox" /></td>
                             <td className="text-center">{menu.name}</td>
                             <td className="text-center">{menu.link}</td>
+                            <td className="text-center">{menu.parent_id}</td>
                             <td className="text-center">
                                 <Link to={`/admin/menu/show/${menu.id}`} className="btn btn-sm btn-primary me-1">
                                     <FaRegEye />

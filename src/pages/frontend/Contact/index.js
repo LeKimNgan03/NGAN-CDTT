@@ -52,7 +52,7 @@ function Contact() {
                         className="p-1 rounded-4"
                         style={{
                             marginRight: 5,
-                            backgroundColor: `#F8E8EE`,
+                            backgroundColor: `#E8E2E2`,
                             color: `#000`
                         }}><GoLocation /></span> TP.Thủ Đức, TP.HCM</p>
 
@@ -60,7 +60,7 @@ function Contact() {
                         className="p-1 rounded-4"
                         style={{
                             marginRight: 5,
-                            backgroundColor: `#F8E8EE`,
+                            backgroundColor: `#E8E2E2`,
                             color: `#000`
                         }}><GoMail /></span> info@gmail.com</p>
 
@@ -68,7 +68,7 @@ function Contact() {
                         className="p-1 rounded-4"
                         style={{
                             marginRight: 5,
-                            backgroundColor: `#F8E8EE`,
+                            backgroundColor: `#E8E2E2`,
                             color: `#000`
                         }}><BsTelephoneFill /></span> + 01 234 567 88</p>
 
@@ -76,7 +76,7 @@ function Contact() {
                         className="p-1 rounded-4"
                         style={{
                             marginRight: 5,
-                            backgroundColor: `#F8E8EE`,
+                            backgroundColor: `#E8E2E2`,
                             color: `#000`
                         }}><BsTelephoneFill /></span> + 01 234 567 88</p>
                 </div>
@@ -84,7 +84,7 @@ function Contact() {
                 <div className="col-md-9">
                     <h5 className="pb-2">Thông tin liên hệ</h5>
                     <div className="contact-form">
-                        <div class="mb-3">
+                        <div className="mb-3">
                             <input
                                 type="text"
                                 name="name"
@@ -95,7 +95,7 @@ function Contact() {
                                 placeholder="Tên của bạn" />
                         </div>
 
-                        <div class="mb-3">
+                        <div className="mb-3">
                             <input
                                 type="email"
                                 name="name"
@@ -106,7 +106,7 @@ function Contact() {
                                 placeholder="Địa chỉ Email" />
                         </div>
 
-                        <div class="mb-3">
+                        <div className="mb-3">
                             <textarea
                                 name="name"
                                 value={content}
@@ -119,7 +119,7 @@ function Contact() {
 
                         <button
                             className="btn btn-outline-light text-dark"
-                            style={{ backgroundColor: `#F8E8EE` }}
+                            style={{ backgroundColor: `#E8E2E2` }}
                             type="submit">
                             Gửi đi
                         </button>

@@ -56,7 +56,7 @@ function PolicyUpdate() {
                             <strong className="text-dark">CẬP NHẬT CHÍNH SÁCH</strong>
                         </div>
                         <div className="col-md-6 text-end">
-                            <button type="submit" className=" btn btn-sm btn-success me-1">Lưu</button>
+                            <button type="submit" className="btn btn-sm btn-success me-1">Lưu</button>
                             <Link to="/admin/policy" className="btn btn-sm btn-info">Về Danh Sách</Link>
                         </div>
                     </div>

@@ -139,7 +139,6 @@ function CategoryCreate() {
                         </div>
                     </div>
                 </div>
-                <div className="card-footer" />
             </div>
         </form>
     );

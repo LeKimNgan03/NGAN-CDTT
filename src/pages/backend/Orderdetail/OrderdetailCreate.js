@@ -64,7 +64,7 @@ function OrderdetailCreate() {
                             <strong className="text-dark">THÊM CHI TIẾT ĐƠN HÀNG</strong>
                         </div>
                         <div className="col-md-6 text-end">
-                            <button type="submit" className=" btn btn-sm btn-success me-1">Lưu</button>
+                            <button type="submit" className="btn btn-sm btn-success me-1">Lưu</button>
                             <Link to="/admin/orderdetail" className="btn btn-sm btn-info">Về Danh Sách</Link>
                         </div>
                     </div>

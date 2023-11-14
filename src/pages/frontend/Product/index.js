@@ -29,7 +29,7 @@ function Product() {
                     <button
                         onClick={() => setLimit(limit + 8)}
                         className="btn btn-outline-light text-dark"
-                        style={{ backgroundColor: `#F8E8EE` }}>
+                        style={{ backgroundColor: `#E8E2E2` }}>
                         Xem thêm
                     </button>
                 </div>

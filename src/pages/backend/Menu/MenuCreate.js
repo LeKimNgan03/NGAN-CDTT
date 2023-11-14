@@ -17,8 +17,10 @@ function MenuCreate() {
     const [name, setName] = useState('');
     const [link, setLink] = useState('');
     const [type, setType] = useState('');
-    const [status, setStatus] = useState(1);
+    const [position, setPosition] = useState('');
+    const [parent_id, setParentId] = useState(0);
     const [sort_order, setSortOrder] = useState(0);
+    const [status, setStatus] = useState(1);
 
     async function menuStore(event) {
         event.preventDefault();
@@ -26,8 +28,10 @@ function MenuCreate() {
         menu.append("name", name);
         menu.append("link", link);
         menu.append("type", type);
-        menu.append("status", status);
+        menu.append("position", position);
+        menu.append("parent_id", parent_id);
         menu.append("sort_order", sort_order);
+        menu.append("status", status);
         await menuservice.create(menu).then((res) => {
             alert(res.data.message)
             navigate('/admin/menu', { replace: true })
@@ -51,7 +55,7 @@ function MenuCreate() {
 
                 <div className="card-body">
                     <div className="row">
-                        <div className="col-md-9 w-100">
+                        <div className="col-md-9">
                             <div className="mb-3">
                                 <label htmlFor="name">Tên Menu</label>
                                 <input
@@ -81,32 +85,58 @@ function MenuCreate() {
                                     onChange={(e) => setType(e.target.value)}
                                     className="form-control" />
                             </div>
+
+                            <div className="mb-3">
+                                <label htmlFor="name">Vị trí</label>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    value={position}
+                                    onChange={(e) => setPosition(e.target.value)}
+                                    className="form-control" />
+                            </div>
                         </div>
 
-                        <div className="mb-3">
-                            <label htmlFor="sort_order">Sắp Xếp</label>
-                            <select
-                                name="sort_order"
-                                value={sort_order}
-                                className="form-control"
-                                onChange={(e) => setSortOrder(e.target.value)}>
-                                <option value="0">None</option>
-                                {menus.map((menu, index) => (
-                                    <option key={index} value={menu.sort_order + 1}>Sau {menu.name}</option>
-                                ))}
-                            </select>
-                        </div>
+                        <div className="col-md-3">
+                            <div className="mb-3">
+                                <label htmlFor="parent_id">Danh mục cha</label>
+                                <select
+                                    name="parent_id"
+                                    value={parent_id}
+                                    className="form-control"
+                                    onChange={(e) => setParentId(e.target.value)}>
+                                    <option value="0">None</option>
+                                    {menus.map((menu, index) => (
+                                        <option key={index} value={menu.parent_id}>{menu.name}</option>
+                                    ))}
+                                </select>
+                            </div>
 
-                        <div className="mb-3">
-                            <label htmlFor="sort">Trạng Thái</label>
-                            <select
-                                name="sort"
-                                value={status}
-                                className="form-control"
-                                onChange={(e) => setStatus(e.target.value)}>
-                                <option value="1">Xuất bản</option>
-                                <option value="2">Chưa xuất bản</option>
-                            </select>
+                            <div className="mb-3">
+                                <label htmlFor="sort_order">Sắp Xếp</label>
+                                <select
+                                    name="sort_order"
+                                    value={sort_order}
+                                    className="form-control"
+                                    onChange={(e) => setSortOrder(e.target.value)}>
+                                    <option value="0">None</option>
+                                    {menus.map((menu, index) => (
+                                        <option key={index} value={menu.sort_order + 1}>Sau {menu.name}</option>
+                                    ))}
+                                </select>
+                            </div>
+
+                            <div className="mb-3">
+                                <label htmlFor="sort">Trạng Thái</label>
+                                <select
+                                    name="sort"
+                                    value={status}
+                                    className="form-control"
+                                    onChange={(e) => setStatus(e.target.value)}>
+                                    <option value="1">Xuất bản</option>
+                                    <option value="2">Chưa xuất bản</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -40,7 +40,6 @@ function Search() {
             </div>
         </section>
     );
-
 }
 
 export default Search;

@@ -5,8 +5,8 @@ import { BsCartPlusFill } from 'react-icons/bs';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import productservice from '../../../services/ProductService';
 import ProductItem from '../../../components/frontend/productitem';
-
 import StarRating from "../../../layouts/frontend/StarRating";
+
 function ProductDetail() {
     // Get Product Detail
     const { slug } = useParams();
@@ -188,7 +188,7 @@ function ProductDetail() {
                                             <button
                                                 type="submit"
                                                 className="btn btn-outline-light text-dark"
-                                                style={{ backgroundColor: `#F8E8EE` }}>
+                                                style={{ backgroundColor: `#E8E2E2` }}>
                                                 Gửi đánh giá
                                             </button>
                                         </div>

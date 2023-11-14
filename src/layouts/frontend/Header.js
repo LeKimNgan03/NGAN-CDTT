@@ -19,7 +19,7 @@ function Header() {
     const [key, setKey] = useState("");
 
     return (
-        <div style={{ backgroundColor: `#F8E8EE` }}>
+        <div style={{ backgroundColor: `#E8E2E2` }}>
             <header className="py-2">
                 <div className="container d-flex flex-wrap">
                     {/* Logo */}

@@ -1,39 +1,46 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "../../assets/css/countdown.css";
 
 function CountDown() {
-    const [days, setDays] = useState(0);
-    const [hours, setHours] = useState(0);
-    const [minutes, setMinutes] = useState(0);
-    const [seconds, setSeconds] = useState(0);
-    const [inputDate, setInputDate] = useState("1 Jan 2023");
-    const [currentDate, setCurrentDate] = useState(inputDate);
+    const [days, setDays] = useState('00');
+    const [hours, setHours] = useState('00');
+    const [minutes, setMinutes] = useState('00');
+    const [seconds, setSeconds] = useState('00');
+
+    let interval = useRef();
+
+    const startTimer = () => {
+        const coutndownDate = new Date('December 30, 2023 00:00:00').getTime();
+
+        interval = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = coutndownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            if (distance < 0) {
+                // Stop our timer
+                clearInterval(interval.current);
+            } else {
+                // Update timer
+                setDays(days);
+                setHours(hours);
+                setMinutes(minutes);
+                setSeconds(seconds);
+            }
+        }, 1000);
+    };
 
     useEffect(() => {
-        const changingDate = new Date(inputDate);
-        const currentDate = new Date();
-        const totalSeconds = (changingDate - currentDate) / 1000;
+        startTimer();
+        return () => {
+            clearInterval(interval.current);
+        };
+    });
 
-        setDays(formatTime(Math.floor(totalSeconds / 3600 / 24)));
-        setHours(Math.floor(totalSeconds / 3600) % 24);
-        setMinutes(Math.floor(totalSeconds / 60) % 60);
-        setSeconds(Math.floor(totalSeconds % 60));
-    }, [currentDate]);
-
-    function formatTime(time) {
-        return time < 10 ? `0${time}` : time;
-    }
-
-    const onChangeHandler = (event) => {
-        setInputDate(event.target.value);
-    };
-
-    const onClickHandler = () => {
-        setCurrentDate(inputDate);
-    };
-
-    // <input className="countdown-input" onChange={onChangeHandler} />
-    //     <button className="countdown-button" onClick={onClickHandler}></button>
     return (
         <div id="countdown">
             <div id="tiles">

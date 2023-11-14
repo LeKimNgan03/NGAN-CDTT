@@ -45,7 +45,7 @@ function TopicCreate() {
                             <strong className="text-dark">THÊM ĐỀ TÀI</strong>
                         </div>
                         <div className="col-md-6 text-end">
-                            <button type="submit" className=" btn btn-sm btn-success me-1">Lưu</button>
+                            <button type="submit" className="btn btn-sm btn-success me-1">Lưu</button>
                             <Link to="/admin/topic" className="btn btn-sm btn-info">Về Danh Sách</Link>
                         </div>
                     </div>

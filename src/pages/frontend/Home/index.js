@@ -32,8 +32,8 @@ function Home() {
 
             <div id="map-container-google-1" className="z-depth-1-half map-container" style={{ height: 500 }}>
                 <iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                    frameborder="0"
-                    style={{ border: 0, width: `100%`, height: `100%` }} allowfullscreen />
+                    frameBorder="0"
+                    style={{ border: 0, width: `100%`, height: `100%` }} allowFullScreen />
             </div>
         </section>
     );

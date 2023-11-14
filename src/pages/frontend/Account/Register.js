@@ -63,7 +63,7 @@ function Register() {
                             {/* Register Button */}
                             <div className="text-center text-lg-start mt-4 pt-2">
                                     <button type="submit" className="btn btn-lg text-dark w-100"
-                                        style={{ paddingLeft: `2.5rem`, paddingRight: `2.5rem`, backgroundColor: `#F8E8EE` }}>
+                                        style={{ paddingLeft: `2.5rem`, paddingRight: `2.5rem`, backgroundColor: `#E8E2E2` }}>
                                         Đăng ký
                                     </button>
                                 <p className="small fw-bold mt-2 pt-1 mb-0 text-center">Bạn đã có tài khoản?

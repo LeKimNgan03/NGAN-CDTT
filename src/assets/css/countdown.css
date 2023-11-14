@@ -1,5 +1,5 @@
 #countdown {
-    margin-left: 6px;
+    margin-left: 8px;
 }
 
 #countdown #tiles {
@@ -8,16 +8,16 @@
 
 #countdown #tiles>span {
     display: inline-block;
-    width: 56px;
-    max-width: 56px;
+    width: 36px;
+    max-width: 36px;
     font: bold 18px "Noto Sans", sans-serif;
     text-align: center;
     color: #111;
-    background-color: #ddd;
+    background-color: #E8E2E2;
     border-top: 1px solid #fff;
     border-radius: 3px;
     box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.7);
-    margin: 0 7px;
+    margin: 3px 7px;
     padding: 4px 0;
     position: relative;
 }

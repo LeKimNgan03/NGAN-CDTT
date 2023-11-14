@@ -55,7 +55,7 @@ function Login() {
                             <div className="text-center text-lg-start mt-4 pt-2">
                                 <Link to="/">
                                     <button type="button" className="btn btn-lg text-dark w-100"
-                                        style={{ paddingLeft: `2.5rem`, paddingRight: `2.5rem`, backgroundColor: `#F8E8EE` }}>
+                                        style={{ paddingLeft: `2.5rem`, paddingRight: `2.5rem`, backgroundColor: `#E8E2E2` }}>
                                         Đăng nhập
                                     </button>
                                 </Link>

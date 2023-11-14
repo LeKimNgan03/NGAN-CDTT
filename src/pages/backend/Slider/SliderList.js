@@ -67,7 +67,7 @@ function SliderList() {
                                 <Link to={`/admin/slider/show/${slider.id}`} className="btn btn-sm btn-primary me-1">
                                     <FaRegEye />
                                 </Link>
-                                <Link to={`/admin/slider/update/${slider.id}`} className="btn btn-sm btn-warning me-1 ">
+                                <Link to={`/admin/slider/update/${slider.id}`} className="btn btn-sm btn-warning me-1">
                                     <FaEdit />
                                 </Link>
                                 <button onClick={() => sliderDelete(slider.id)} className="btn btn-sm btn-danger me-1">

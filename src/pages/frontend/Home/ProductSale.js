@@ -2,14 +2,15 @@ import "../../../assets/css/productsale.css";
 import "../../../assets/js/productsale.js";
 import CountDown from "../../../layouts/frontend/CountDown.js";
 
-function ProductSale() {
+function ProductSale(props) {
     return (
-        <section className="my-5 mx-2 p-3 bg-warning rounded-3">
+        <section className="my-5 mx-2 p-3 rounded-3" style={{ backgroundColor: `#F99417` }}>
             <div className="row">
                 <div className="d-flex">
                     <h3 className="fw-bold">SẢN PHẨM SALE</h3>
-                    <CountDown/>
+                    <CountDown />
                 </div>
+
                 <div id="myCarousel" className="carousel slide container" data-bs-ride="carousel">
                     <div className="carousel-inner w-100">
                         <div className="carousel-item active">
@@ -19,6 +20,7 @@ function ProductSale() {
                                 </div>
                             </div>
                         </div>
+
                         <div className="carousel-item">
                             <div className="col-md-3">
                                 <div className="card card-body">
@@ -26,6 +28,7 @@ function ProductSale() {
                                 </div>
                             </div>
                         </div>
+
                         <div className="carousel-item">
                             <div className="col-md-3">
                                 <div className="card card-body">
@@ -33,6 +36,7 @@ function ProductSale() {
                                 </div>
                             </div>
                         </div>
+
                         <div className="carousel-item">
                             <div className="col-md-3">
                                 <div className="card card-body">
@@ -40,39 +44,13 @@ function ProductSale() {
                                 </div>
                             </div>
                         </div>
-                        <div className="carousel-item">
-                            <div className="col-md-3">
-                                <div className="card card-body">
-                                    <img className="img-fluid" src="https://via.placeholder.com/640x360?text=5" />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="carousel-item">
-                            <div className="col-md-3">
-                                <div className="card card-body">
-                                    <img className="img-fluid" src="https://via.placeholder.com/640x360?text=6" />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="carousel-item">
-                            <div className="col-md-3">
-                                <div className="card card-body">
-                                    <img className="img-fluid" src="https://via.placeholder.com/640x360?text=7" />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="carousel-item">
-                            <div className="col-md-3">
-                                <div className="card card-body">
-                                    <img className="img-fluid" src="https://via.placeholder.com/640x360?text=8" />
-                                </div>
-                            </div>
-                        </div>
                     </div>
+
                     <button className="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
                         <span className="carousel-control-prev-icon" aria-hidden="true" />
                         <span className="visually-hidden">Previous</span>
                     </button>
+
                     <button className="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
                         <span className="carousel-control-next-icon" aria-hidden="true" />
                         <span className="visually-hidden">Next</span>
