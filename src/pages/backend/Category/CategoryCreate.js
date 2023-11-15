@@ -5,13 +5,14 @@ import categoryservice from "../../../services/CategoryService";
 function CategoryCreate() {
     const navigate = useNavigate();
     const [categories, setCategories] = useState([]);
+
     useEffect(() => {
         {
             categoryservice.getAll().then((result) => {
                 setCategories(result.data.categories);
             });
         }
-    }, [])
+    }, []);
 
     const [name, setName] = useState("");
     const [metakey, setMetakey] = useState("");
@@ -38,9 +39,10 @@ function CategoryCreate() {
         }
         await categoryservice.create(category).then((res) => {
             alert(res.data.message);
-            navigate("../../admin/category", { replace: true });
+            navigate("/admin/category", { replace: true });
         });
     }
+
     return (
         <form onSubmit={categoryStore} method="post">
             <div className="card">
@@ -122,7 +124,6 @@ function CategoryCreate() {
                             <div className="mb-3">
                                 <label htmlFor="image">Hình đại diện</label>
                                 <input type="file" id="image" className="form-control" />
-                                {/* <option value="0">None</option> */}
                             </div>
 
                             <div className="mb-3">

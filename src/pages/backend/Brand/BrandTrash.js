@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { FaPlus, FaEdit, FaTrashAlt } from 'react-icons/fa';
-import { BsFillEyeFill, BsFillTrashFill } from "react-icons/bs";
+import { FaTrashRestore, FaArrowLeft } from 'react-icons/fa';
+import { BsFillTrashFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import brandservice from '../../../services/BrandService';
 import { urlImage } from '../../../config';
@@ -12,14 +12,20 @@ function BrandList() {
 
     useEffect(() => {
         {
-            brandservice.getAll().then((result) => {
+            brandservice.getTrash().then((result) => {
                 setBrands(result.data.brands);
             });
         }
     }, [statusde]);
 
     function brandDelete(id) {
-        brandservice.sortdelete(id).then((result) => {
+        brandservice.remove(id).then((result) => {
+            console.log(result.data.message);
+            setStatusDelete(result.data.id);
+        });
+    }
+    function restore(id) {
+        brandservice.restore(id).then((result) => {
             console.log(result.data.message);
             setStatusDelete(result.data.id);
         });
@@ -30,14 +36,11 @@ function BrandList() {
             <div className="card-header">
                 <div className="row">
                     <div className="col-md-6">
-                        <strong className="text-dark">THƯƠNG HIỆU</strong>
+                        <strong className="text-dark">THÙNG RÁC</strong>
                     </div>
                     <div className="col-md-6 text-end">
-                        <Link to={"/admin/brand/trash"} className="btn btn-sm btn-danger me-2">
-                            <FaTrashAlt /> Thùng rác
-                        </Link>
-                        <Link to="/admin/brand/create" className="btn btn-sm btn-success">
-                            <FaPlus /> Thêm
+                        <Link to="/admin/brand" className="btn btn-sm btn-success">
+                            <FaArrowLeft /> Quay Về
                         </Link>
                     </div>
                 </div>
@@ -56,7 +59,7 @@ function BrandList() {
                         </tr>
                     </thead>
                     <tbody>
-                        {brands.map((brand, index) => (
+                        {brands.map((brand, index) =>
                             <tr key={index}>
                                 <td className="text-center"><input type="checkbox" /></td>
                                 <td className="text-center">
@@ -69,19 +72,16 @@ function BrandList() {
                                 <td className="text-center">{brand.name}</td>
                                 <td className="text-center"><Moment format="DD/MM/YYYY">{brand.created_at}</Moment></td>
                                 <td className="text-center">
-                                    <Link className="btn btn-sm btn-primary me-1" to={`/admin/brand/show/${brand.id}`}>
-                                        <BsFillEyeFill />
-                                    </Link>
-                                    <Link className="btn btn-sm btn-warning me-1" to={`/admin/brand/update/${brand.id}`}>
-                                        <FaEdit />
-                                    </Link>
+                                    <button onClick={() => restore(brand.id)} className="btn btn-sm btn-success me-1">
+                                        <FaTrashRestore />
+                                    </button>
                                     <button onClick={() => brandDelete(brand.id)} className="btn btn-sm btn-danger">
                                         <BsFillTrashFill />
                                     </button>
                                 </td>
                                 <td className="text-center">{brand.id}</td>
                             </tr>
-                        ))}
+                        )}
                     </tbody>
                 </table>
             </div>

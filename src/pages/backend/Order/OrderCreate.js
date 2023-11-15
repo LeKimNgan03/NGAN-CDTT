@@ -15,29 +15,28 @@ function OrderCreate() {
 
     const navigate = useNavigate();
     const [user_id, setUserId] = useState(0);
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState();
-    const [address, setAddress] = useState('');
-    const [status, setStatus] = useState(1);
+    const [delivery_name, setDeliName] = useState('');
+    const [delivery_gender, setDeliGender] = useState('');
+    const [delivery_email, setDeliEmail] = useState('');
+    const [delivery_phone, setDeliPhone] = useState();
+    const [delivery_address, setDeliAddress] = useState('');
     const [note, setNote] = useState('');
 
     async function orderStore(event) {
         event.preventDefault();
         const order = new FormData();
         order.append("user_id", user_id);
-        order.append("name", name);
-        order.append("email", email);
-        order.append("phone", phone);
-        order.append("address", address);
+        order.append("delivery_name", delivery_name);
+        order.append("delivery_gender", delivery_gender);
+        order.append("delivery_email", delivery_email);
+        order.append("delivery_phone", delivery_phone);
+        order.append("delivery_address", delivery_address);
         order.append("note", note);
-        order.append("status", status);
         await orderservice.create(order)
             .then((res) => {
                 alert(res.data.message)
                 navigate('/admin/order', { replace: true })
             });
-
     }
 
     return (
@@ -122,18 +121,6 @@ function OrderCreate() {
                                     value={note}
                                     onChange={(e) => setNote(e.target.value)}
                                     className="form-control" />
-                            </div>
-
-                            <div className="mb-3">
-                                <label htmlFor="sort">Trạng Thái</label>
-                                <select
-                                    name="sort"
-                                    value={status}
-                                    className="form-control"
-                                    onChange={(e) => setStatus(e.target.value)}>
-                                    <option value="1">Xuất Bản</option>
-                                    <option value="2">Chưa Xuất Bản</option>
-                                </select>
                             </div>
                         </div>
                     </div>

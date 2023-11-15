@@ -1,5 +1,4 @@
 import "../../../assets/css/productsale.css";
-import "../../../assets/js/productsale.js";
 import CountDown from "../../../layouts/frontend/CountDown.js";
 
 function ProductSale(props) {
@@ -11,47 +10,89 @@ function ProductSale(props) {
                     <CountDown />
                 </div>
 
-                <div id="myCarousel" className="carousel slide container" data-bs-ride="carousel">
-                    <div className="carousel-inner w-100">
+                <div id="carouselExampleControls" className="carousel carousel-dark slide mt-3" data-bs-ride="carousel">
+                    <div className="carousel-inner">
                         <div className="carousel-item active">
-                            <div className="col-md-3">
-                                <div className="card card-body">
-                                    <img className="img-fluid" src="https://via.placeholder.com/640x360?text=1" />
+                            <div className="row">
+                                <div className="col-lg-4">
+                                    <div className="card" style={{ width: `18rem` }}>
+                                        <img src="..." className="card-img-top" alt="..." />
+                                        <div className="card-body">
+                                            <h5 className="card-title">Card title</h5>
+                                            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            <a href="#" className="btn btn-primary">Go somewhere</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="col-lg-4">
+                                    <div className="card" style={{ width: `18rem` }}>
+                                        <img src="..." className="card-img-top" alt="..." />
+                                        <div className="card-body">
+                                            <h5 className="card-title">Card title</h5>
+                                            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            <a href="#" className="btn btn-primary">Go somewhere</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="col-lg-4">
+                                    <div className="card" style={{ width: `18rem` }}>
+                                        <img src="..." className="card-img-top" alt="..." />
+                                        <div className="card-body">
+                                            <h5 className="card-title">Card title</h5>
+                                            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            <a href="#" className="btn btn-primary">Go somewhere</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         <div className="carousel-item">
-                            <div className="col-md-3">
-                                <div className="card card-body">
-                                    <img className="img-fluid" src="https://via.placeholder.com/640x360?text=2" />
+                            <div className="row">
+                                <div className="col-lg-4">
+                                    <div className="card" style={{ width: `18rem` }}>
+                                        <img src="..." className="card-img-top" alt="..." />
+                                        <div className="card-body">
+                                            <h5 className="card-title">Card title</h5>
+                                            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            <a href="#" className="btn btn-primary">Go somewhere</a>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
 
-                        <div className="carousel-item">
-                            <div className="col-md-3">
-                                <div className="card card-body">
-                                    <img className="img-fluid" src="https://via.placeholder.com/640x360?text=3" />
+                                <div className="col-lg-4">
+                                    <div className="card" style={{ width: `18rem` }}>
+                                        <img src="..." className="card-img-top" alt="..." />
+                                        <div className="card-body">
+                                            <h5 className="card-title">Card title</h5>
+                                            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            <a href="#" className="btn btn-primary">Go somewhere</a>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
 
-                        <div className="carousel-item">
-                            <div className="col-md-3">
-                                <div className="card card-body">
-                                    <img className="img-fluid" src="https://via.placeholder.com/640x360?text=4" />
+                                <div className="col-lg-4">
+                                    <div className="card" style={{ width: `18rem` }}>
+                                        <img src="..." className="card-img-top" alt="..." />
+                                        <div className="card-body">
+                                            <h5 className="card-title">Card title</h5>
+                                            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            <a href="#" className="btn btn-primary">Go somewhere</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <button className="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                    <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                         <span className="carousel-control-prev-icon" aria-hidden="true" />
                         <span className="visually-hidden">Previous</span>
                     </button>
 
-                    <button className="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                    <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
                         <span className="carousel-control-next-icon" aria-hidden="true" />
                         <span className="visually-hidden">Next</span>
                     </button>

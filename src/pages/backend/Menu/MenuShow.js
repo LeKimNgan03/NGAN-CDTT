@@ -16,7 +16,7 @@ function MenuShow() {
     }, []);
 
     function menuDelete(id) {
-        menuservice.remove(id).then((result) => {
+        menuservice.sortdelete(id).then((result) => {
             alert(result.data.message);
             navigate('/admin/menu', { replace: true })
         });

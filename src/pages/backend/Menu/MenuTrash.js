@@ -1,4 +1,4 @@
-import { FaPlus, FaRegEye, FaEdit, FaTrash, FaTrashAlt } from 'react-icons/fa';
+import { FaArrowLeft, FaTrashRestore, FaTrash } from 'react-icons/fa';
 import { Link } from "react-router-dom";
 import menuservice from '../../../services/MenuService';
 import { useEffect, useState } from 'react';
@@ -9,14 +9,21 @@ function MenuList() {
 
     useEffect(() => {
         {
-            menuservice.getAll().then((result) => {
+            menuservice.getTrash().then((result) => {
                 setMenus(result.data.menus);
             });
         }
     }, [statusdel]);
 
     function menuDelete(id) {
-        menuservice.sortdelete(id).then((result) => {
+        menuservice.remove(id).then((result) => {
+            console.log(result.data.message);
+            setStatusDel(result.data.id);
+        });
+    }
+
+    function restore(id) {
+        menuservice.restore(id).then((result) => {
             console.log(result.data.message);
             setStatusDel(result.data.id);
         });
@@ -27,14 +34,11 @@ function MenuList() {
             <div className="card-header">
                 <div className="row">
                     <div className="col-md-6">
-                        <strong className="text-dark">DANH SÁCH MENU</strong>
+                        <strong className="text-dark">THÙNG RÁC</strong>
                     </div>
                     <div className="col-md-6 text-end">
-                        <Link to={"/admin/menu/trash"} className="btn btn-sm btn-danger me-2">
-                            <FaTrashAlt /> Thùng rác
-                        </Link>
-                        <Link to="/admin/menu/create" className="btn btn-sm btn-success">
-                            <FaPlus /> Thêm
+                        <Link to="/admin/menu" className="btn btn-sm btn-success">
+                            <FaArrowLeft /> Quay Về
                         </Link>
                     </div>
                 </div>
@@ -60,12 +64,9 @@ function MenuList() {
                                 <td className="text-center">{menu.link}</td>
                                 <td className="text-center">{menu.parent_id}</td>
                                 <td className="text-center">
-                                    <Link to={`/admin/menu/show/${menu.id}`} className="btn btn-sm btn-primary me-1">
-                                        <FaRegEye />
-                                    </Link>
-                                    <Link to={`/admin/menu/update/${menu.id}`} className="btn btn-sm btn-warning me-1">
-                                        <FaEdit />
-                                    </Link>
+                                    <button onClick={() => restore(menu.id)} className="btn btn-sm btn-success me-1">
+                                        <FaTrashRestore />
+                                    </button>
                                     <button onClick={() => menuDelete(menu.id)} className="btn btn-sm btn-danger me-1">
                                         <FaTrash />
                                     </button>

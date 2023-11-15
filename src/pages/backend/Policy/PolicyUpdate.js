@@ -53,7 +53,7 @@ function PolicyUpdate() {
                 <div className="card-header">
                     <div className="row">
                         <div className="col-md-6">
-                            <strong className="text-dark">CẬP NHẬT CHÍNH SÁCH</strong>
+                            <strong className="text-dark">CẬP NHẬT TRANG ĐƠN</strong>
                         </div>
                         <div className="col-md-6 text-end">
                             <button type="submit" className="btn btn-sm btn-success me-1">Lưu</button>

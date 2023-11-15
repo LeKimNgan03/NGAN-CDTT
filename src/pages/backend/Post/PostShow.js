@@ -17,7 +17,7 @@ function PostShow() {
     }, []);
 
     function postDelete(id) {
-        postservice.remove(id).then((result) => {
+        postservice.sortdelete(id).then((result) => {
             alert(result.data.message);
             navigate('/admin/post', { replace: true })
         });

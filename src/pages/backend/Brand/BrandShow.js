@@ -18,7 +18,7 @@ function BrandShow() {
     }, []);
 
     function brandDelete(id) {
-        brandservice.remove(id).then((result) => {
+        brandservice.sortdelete(id).then((result) => {
             alert(result.data.message);
             navigate('/admin/brand', { replace: true });
         });

@@ -18,7 +18,7 @@ function ContactShow() {
     }, []);
 
     function contactDelete(id) {
-        contactservice.remove(id).then((result) => {
+        contactservice.sortdelete(id).then((result) => {
             alert(result.data.message);
             navigate('/admin/contact', { replace: true });
         });

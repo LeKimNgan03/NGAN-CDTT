@@ -20,6 +20,18 @@ function remove(id) {
     return httpAxios.delete(`slider/destroy/${id}`);
 }
 
+function sortdelete(id) {
+    return httpAxios.post(`slider/sortdelete/${id}`);
+}
+
+function restore(id) {
+    return httpAxios.post(`slider/restore/${id}`);
+}
+
+function getTrash() {
+    return httpAxios.get('slider/trash');
+}
+
 // 
 function getByPosition(position) {
     return httpAxios.get(`slider_list/${position}`);
@@ -31,7 +43,10 @@ const sliderservice = {
     getById,
     create,
     update,
-    remove
+    remove,
+    getTrash,
+    restore,
+    sortdelete
 }
 
 export default sliderservice;

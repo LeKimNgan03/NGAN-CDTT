@@ -56,7 +56,7 @@ function TopicUpdate() {
                 <div className="card-header">
                     <div className="row">
                         <div className="col-md-6">
-                            <strong className="text-dark">CẬP NHẬT ĐỀ TÀI</strong>
+                            <strong className="text-dark">CẬP NHẬT CHỦ ĐỀ</strong>
                         </div>
                         <div className="col-md-6 text-end">
                             <button type="submit" className="btn btn-sm btn-success me-1">Lưu</button>
@@ -69,7 +69,7 @@ function TopicUpdate() {
                     <div className="row">
                         <div className="col-md-9 w-100">
                             <div className="mb-3">
-                                <label htmlFor="name">Tên Đề Tài</label>
+                                <label htmlFor="name">Tên Chủ Đề</label>
                                 <input
                                     type="text"
                                     name="name"

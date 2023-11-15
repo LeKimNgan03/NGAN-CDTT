@@ -20,12 +20,27 @@ function remove(id) {
     return httpAxios.delete(`policy/destroy/${id}`);
 }
 
+function sortdelete(id) {
+    return httpAxios.post(`policy/sortdelete/${id}`);
+}
+
+function restore(id) {
+    return httpAxios.post(`policy/restore/${id}`);
+}
+
+function getTrash() {
+    return httpAxios.get('policy/trash');
+}
+
 const policyservice = {
     getAll,
     getById,
     create,
     update,
-    remove
+    remove,
+    getTrash,
+    restore,
+    sortdelete
 }
 
 export default policyservice;

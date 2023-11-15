@@ -1,5 +1,5 @@
 function DashBoard() {
-    return (<h1>DashBoard</h1>);
+    return (<h1>TRANG QUẢN TRỊ</h1>);
 }
 
 export default DashBoard;

@@ -20,6 +20,18 @@ function remove(id) {
     return httpAxios.delete(`menu/destroy/${id}`);
 }
 
+function sortdelete(id) {
+    return httpAxios.post(`menu/sortdelete/${id}`);
+}
+
+function restore(id) {
+    return httpAxios.post(`menu/restore/${id}`);
+}
+
+function getTrash() {
+    return httpAxios.get('menu/trash');
+}
+
 // 
 function getByParentId(position, parent_id) {
     return httpAxios.get(`menu_list/${position}/${parent_id}`);
@@ -31,7 +43,10 @@ const menuservice = {
     getById,
     create,
     update,
-    remove
+    remove,
+    getTrash,
+    restore,
+    sortdelete
 }
 
 export default menuservice;

@@ -20,12 +20,27 @@ function remove(id) {
     return httpAxios.delete(`brand/destroy/${id}`);
 }
 
+function sortdelete(id) {
+    return httpAxios.post(`brand/sortdelete/${id}`);
+}
+
+function restore(id) {
+    return httpAxios.post(`brand/restore/${id}`);
+}
+
+function getTrash() {
+    return httpAxios.get('brand/trash');
+}
+
 const brandservice = {
     getAll,
     getById,
     create,
     update,
-    remove
+    remove,
+    getTrash,
+    restore,
+    sortdelete
 }
 
 export default brandservice;

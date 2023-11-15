@@ -1,4 +1,4 @@
-import { FaPlus, FaRegEye, FaEdit, FaTrash, FaTrashAlt } from 'react-icons/fa';
+import { FaArrowLeft, FaTrashRestore, FaTrash } from 'react-icons/fa';
 import sliderservice from '../../../services/SliderService';
 import { Link } from "react-router-dom";
 import { useEffect, useState } from 'react';
@@ -10,14 +10,21 @@ function SliderList() {
 
     useEffect(() => {
         {
-            sliderservice.getAll().then((result) => {
+            sliderservice.getTrash().then((result) => {
                 setSliders(result.data.sliders);
             });
         }
     }, [statusdel]);
 
     function sliderDelete(id) {
-        sliderservice.sortdelete(id).then((result) => {
+        sliderservice.remove(id).then((result) => {
+            console.log(result.data.message);
+            setStatusDel(result.data.id);
+        });
+    }
+
+    function restore(id) {
+        sliderservice.restore(id).then((result) => {
             console.log(result.data.message);
             setStatusDel(result.data.id);
         });
@@ -28,14 +35,11 @@ function SliderList() {
             <div className="card-header">
                 <div className="row">
                     <div className="col-md-6">
-                        <strong className="text-dark">DANH SÁCH SLIDER</strong>
+                        <strong className="text-dark">THÙNG RÁC</strong>
                     </div>
                     <div className="col-md-6 text-end">
-                        <Link to={"/admin/slider/trash"} className="btn btn-sm btn-danger me-2">
-                            <FaTrashAlt /> Thùng rác
-                        </Link>
-                        <Link to="/admin/slider/create" className="btn btn-sm btn-success">
-                            <FaPlus /> Thêm
+                        <Link to="/admin/slider" className="btn btn-sm btn-success">
+                            <FaArrowLeft /> Quay Về
                         </Link>
                     </div>
                 </div>
@@ -69,12 +73,9 @@ function SliderList() {
                                 </td>
                                 <td className="text-center">{slider.position}</td>
                                 <td className="text-center">
-                                    <Link to={`/admin/slider/show/${slider.id}`} className="btn btn-sm btn-primary me-1">
-                                        <FaRegEye />
-                                    </Link>
-                                    <Link to={`/admin/slider/update/${slider.id}`} className="btn btn-sm btn-warning me-1">
-                                        <FaEdit />
-                                    </Link>
+                                    <button onClick={() => restore(slider.id)} className="btn btn-sm btn-success me-1">
+                                        <FaTrashRestore />
+                                    </button>
                                     <button onClick={() => sliderDelete(slider.id)} className="btn btn-sm btn-danger me-1">
                                         <FaTrash />
                                     </button>

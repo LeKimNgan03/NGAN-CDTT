@@ -42,7 +42,7 @@ function TopicCreate() {
                 <div className="card-header">
                     <div className="row">
                         <div className="col-md-6">
-                            <strong className="text-dark">THÊM ĐỀ TÀI</strong>
+                            <strong className="text-dark">THÊM CHỦ ĐỀ</strong>
                         </div>
                         <div className="col-md-6 text-end">
                             <button type="submit" className="btn btn-sm btn-success me-1">Lưu</button>
@@ -55,7 +55,7 @@ function TopicCreate() {
                     <div className="row">
                         <div className="col-md-9 w-100">
                             <div className="mb-3">
-                                <label htmlFor="name">Tên</label>
+                                <label htmlFor="name">Tên Chủ Đề</label>
                                 <input
                                     type="text"
                                     name="name"

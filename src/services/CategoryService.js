@@ -20,6 +20,18 @@ function remove(id) {
     return httpAxios.delete(`category/destroy/${id}`);
 }
 
+function sortdelete(id) {
+    return httpAxios.post(`category/sortdelete/${id}`);
+}
+
+function restore(id) {
+    return httpAxios.post(`category/restore/${id}`);
+}
+
+function getTrash() {
+    return httpAxios.get('category/trash');
+}
+
 // 
 function getCategoryByParentId(parent_id) {
     return httpAxios.get(`category_list/${parent_id}`);
@@ -36,7 +48,10 @@ const categoryservice = {
     getById,
     create,
     update,
-    remove
+    remove,
+    getTrash,
+    restore,
+    sortdelete
 }
 
 export default categoryservice;

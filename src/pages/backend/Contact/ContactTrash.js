@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { FaPlus, FaEdit, FaTrashAlt } from 'react-icons/fa';
-import { BsFillEyeFill, BsFillTrashFill } from "react-icons/bs";
+import { FaArrowLeft, FaTrashRestore } from 'react-icons/fa';
+import { BsFillTrashFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import contactservice from '../../../services/ContactService';
 
@@ -10,14 +10,21 @@ function ContactList() {
 
     useEffect(() => {
         {
-            contactservice.getAll().then((result) => {
+            contactservice.getTrash().then((result) => {
                 setContacts(result.data.contacts);
             });
         }
     }, [statusde]);
 
     function contactDelete(id) {
-        contactservice.sortdelete(id).then((result) => {
+        contactservice.remove(id).then((result) => {
+            console.log(result.data.message);
+            setStatusDelete(result.data.id);
+        });
+    }
+
+    function restore(id) {
+        contactservice.restore(id).then((result) => {
             console.log(result.data.message);
             setStatusDelete(result.data.id);
         });
@@ -28,14 +35,11 @@ function ContactList() {
             <div className="card-header">
                 <div className="row">
                     <div className="col-md-6">
-                        <strong className="text-dark">LIÊN HỆ</strong>
+                        <strong className="text-dark">THÙNG RÁC</strong>
                     </div>
                     <div className="col-md-6 text-end">
-                        <Link to={"/admin/contact/trash"} className="btn btn-sm btn-danger me-2">
-                            <FaTrashAlt /> Thùng rác
-                        </Link>
-                        <Link to="/admin/contact/create" className="btn btn-sm btn-success">
-                            <FaPlus /> Thêm
+                        <Link to="/admin/contact" className="btn btn-sm btn-success">
+                            <FaArrowLeft /> Quay Về
                         </Link>
                     </div>
                 </div>
@@ -61,12 +65,9 @@ function ContactList() {
                                 <td className="text-center">{contact.email}</td>
                                 <td className="text-center">{contact.content}</td>
                                 <td className="text-center">
-                                    <Link className="btn btn-sm btn-primary me-1" to={`/admin/contact/show/${contact.id}`}>
-                                        <BsFillEyeFill />
-                                    </Link>
-                                    <Link className="btn btn-sm btn-warning me-1" to={`/admin/contact/update/${contact.id}`}>
-                                        <FaEdit />
-                                    </Link>
+                                    <button onClick={() => restore(contact.id)} className="btn btn-sm btn-success me-1">
+                                        <FaTrashRestore />
+                                    </button>
                                     <button onClick={() => contactDelete(contact.id)} className="btn btn-sm btn-danger">
                                         <BsFillTrashFill />
                                     </button>
@@ -77,7 +78,8 @@ function ContactList() {
                     </tbody>
                 </table>
             </div>
-        </section>);
+        </section>
+    );
 }
 
 export default ContactList;

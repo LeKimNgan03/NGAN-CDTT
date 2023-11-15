@@ -9,14 +9,14 @@ function OrderList() {
     
     useEffect(() => {
         {
-            orderservice.getAll().then((result) => {
+            orderservice.getTrash().then((result) => {
                 setOrders(result.data.orders);
             });
         }
     }, [statusdel])
 
     function orderDelete(id) {
-        orderservice.sortdelete(id).then((result) => {
+        orderservice.remove(id).then((result) => {
             console.log(result.data.message);
             setStatusDel(result.data.id);
         });

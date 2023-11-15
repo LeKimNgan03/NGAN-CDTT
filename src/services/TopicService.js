@@ -20,6 +20,18 @@ function remove(id) {
     return httpAxios.delete(`topic/destroy/${id}`);
 }
 
+function sortdelete(id) {
+    return httpAxios.post(`topic/sortdelete/${id}`);
+}
+
+function restore(id) {
+    return httpAxios.post(`topic/restore/${id}`);
+}
+
+function getTrash() {
+    return httpAxios.get('topic/trash');
+}
+
 // 
 function getTopicById(parent_id) {
     return httpAxios.get(`topic_list/${parent_id}`);
@@ -36,7 +48,10 @@ const topicservice = {
     getById,
     create,
     update,
-    remove
+    remove,
+    getTrash,
+    restore,
+    sortdelete
 }
 
 export default topicservice;

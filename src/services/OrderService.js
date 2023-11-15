@@ -20,12 +20,27 @@ function remove(id) {
     return httpAxios.delete(`order/destroy/${id}`);
 }
 
+function sortdelete(id) {
+    return httpAxios.post(`order/sortdelete/${id}`);
+}
+
+function restore(id) {
+    return httpAxios.post(`order/restore/${id}`);
+}
+
+function getTrash() {
+    return httpAxios.get('order/trash');
+}
+
 const orderservice = {
     getAll,
     getById,
     create,
     update,
-    remove
+    remove,
+    getTrash,
+    restore,
+    sortdelete
 }
 
 export default orderservice;

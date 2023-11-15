@@ -17,7 +17,7 @@ function OrderShow() {
     }, []);
 
     function orderDelete(id) {
-        orderservice.remove(id).then((result) => {
+        orderservice.sortdelete(id).then((result) => {
             alert(result.data.message);
             navigate('/admin/order', { replace: true })
         });

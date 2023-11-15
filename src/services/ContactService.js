@@ -20,12 +20,27 @@ function remove(id) {
     return httpAxios.delete(`contact/destroy/${id}`);
 }
 
+function sortdelete(id) {
+    return httpAxios.post(`contact/sortdelete/${id}`);
+}
+
+function restore(id) {
+    return httpAxios.post(`contact/restore/${id}`);
+}
+
+function getTrash() {
+    return httpAxios.get('contact/trash');
+}
+
 const contactservice = {
     getAll,
     getById,
     create,
     update,
-    remove
+    remove,
+    getTrash,
+    restore,
+    sortdelete
 }
 
 export default contactservice;

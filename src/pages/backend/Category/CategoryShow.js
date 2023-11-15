@@ -18,7 +18,7 @@ function CategoryShow() {
     }, []);
 
     function categoryDelete(id) {
-        categoryservice.remove(id).then((result) => {
+        categoryservice.sortdelete(id).then((result) => {
             alert(result.data.message);
             navigate('/admin/category', { replace: true });
         });

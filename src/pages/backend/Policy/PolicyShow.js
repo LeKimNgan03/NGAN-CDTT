@@ -16,7 +16,7 @@ function PolicyShow() {
     }, []);
 
     function policyDelete(id) {
-        policyservice.remove(id).then((result) => {
+        policyservice.sortdelete(id).then((result) => {
             alert(result.data.message);
             navigate('/admin/policy', { replace: true })
         });
@@ -27,7 +27,7 @@ function PolicyShow() {
             <div className="card-header">
                 <div className="row">
                     <div className="col-md-6">
-                        <strong className="text-dark">CHI TIẾT CHÍNH SÁCH</strong>
+                        <strong className="text-dark">CHI TIẾT TRANG ĐƠN</strong>
                     </div>
                     <div className="col-md-6 text-end">
                         <Link to="/admin/policy" className="btn btn-sm btn-success me-1">Về Danh Sách</Link>

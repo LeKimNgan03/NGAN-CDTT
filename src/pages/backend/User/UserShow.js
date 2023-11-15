@@ -18,7 +18,7 @@ function UserShow() {
     }, []);
 
     function userDelete(id) {
-        userservice.remove(id).then((result) => {
+        userservice.sortdelete(id).then((result) => {
             alert(result.data.message);
             navigate('/admin/user', { replace: true })
         });
@@ -54,6 +54,7 @@ function UserShow() {
                     <tbody>
                         <tr><td>ID</td><td>{id}</td></tr>
                         <tr><td>Tên Người Dùng</td><td>{user.name}</td></tr>
+                        <tr><td>Giới Tính</td><td>{user.gender}</td></tr>
                         <tr><td>Email</td><td>{user.email}</td></tr>
                         <tr><td>Điện Thoại</td><td>{user.phone}</td></tr>
                         <tr><td>Tên Tài Khoản</td><td>{user.username}</td></tr>

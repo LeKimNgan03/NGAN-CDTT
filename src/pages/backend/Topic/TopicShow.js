@@ -17,7 +17,7 @@ function TopicShow() {
     }, []);
 
     function topicDelete(id) {
-        topicservice.remove(id).then((result) => {
+        topicservice.sortdelete(id).then((result) => {
             alert(result.data.message);
             navigate('/admin/topic', { replace: true })
         });
@@ -28,7 +28,7 @@ function TopicShow() {
             <div className="card-header">
                 <div className="row">
                     <div className="col-md-6">
-                        <strong className="text-dark">CHI TIẾT ĐỀ TÀI</strong>
+                        <strong className="text-dark">CHI TIẾT CHỦ ĐỀ</strong>
                     </div>
                     <div className="col-md-6 text-end">
                         <Link to="/admin/topic" className="btn btn-sm btn-success me-1">Về Danh Sách</Link>
@@ -52,7 +52,7 @@ function TopicShow() {
                     </thead>
                     <tbody>
                         <tr><td>ID</td><td>{id}</td></tr>
-                        <tr><td>Tên Đề Tài</td><td>{topic.name}</td></tr>
+                        <tr><td>Tên Chủ Đề</td><td>{topic.name}</td></tr>
                         <tr><td>Slug</td><td>{topic.slug}</td></tr>
                         <tr><td>Từ Khóa</td><td>{topic.metakey}</td></tr>
                         <tr><td>Mô Tả</td><td>{topic.metadesc}</td></tr>

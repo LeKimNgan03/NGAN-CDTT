@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { FaPlus, FaRegEye, FaEdit, FaTrash, FaTrashAlt } from 'react-icons/fa';
+import { FaArrowLeft, FaTrashRestore, FaTrash } from 'react-icons/fa';
 import { Link } from "react-router-dom";
 import productsaleservice from '../../../services/ProductsaleService';
 import Moment from "react-moment";
@@ -10,14 +10,21 @@ function ProductsaleList() {
 
     useEffect(() => {
         {
-            productsaleservice.getAll().then((result) => {
+            productsaleservice.getTrash().then((result) => {
                 setProductsales(result.data.productsales);
             });
         }
     }, [statusdel])
 
     function productsaleDelete(id) {
-        productsaleservice.sortdelete(id).then((result) => {
+        productsaleservice.remove(id).then((result) => {
+            console.log(result.data.message);
+            setStatusDel(result.data.id);
+        });
+    }
+
+    function restore(id) {
+        productsaleservice.restore(id).then((result) => {
             console.log(result.data.message);
             setStatusDel(result.data.id);
         });
@@ -28,14 +35,11 @@ function ProductsaleList() {
             <div className="card-header">
                 <div className="row">
                     <div className="col-md-6">
-                        <strong className="text-dark">DANH SÁCH SẢN PHẨM SALE</strong>
+                        <strong className="text-dark">THÙNG RÁC</strong>
                     </div>
                     <div className="col-md-6 text-end">
-                        <Link to={"/admin/productsale/trash"} className="btn btn-sm btn-danger me-2">
-                            <FaTrashAlt /> Thùng rác
-                        </Link>
-                        <Link to="/admin/productsale/create" className="btn btn-sm btn-success">
-                            <FaPlus /> Thêm
+                        <Link to="/admin/productsale" className="btn btn-sm btn-success">
+                            <FaArrowLeft /> Quay Về
                         </Link>
                     </div>
                 </div>
@@ -69,12 +73,9 @@ function ProductsaleList() {
                                     <Moment format="DD/MM/YYYY">{productsale.date_end}</Moment>
                                 </td>
                                 <td className="text-center">
-                                    <Link to={`/admin/productsale/show/${productsale.id}`} className="btn btn-sm btn-primary me-1">
-                                        <FaRegEye />
-                                    </Link>
-                                    <Link to={`/admin/productsale/update/${productsale.id}`} className="btn btn-sm btn-warning me-1">
-                                        <FaEdit />
-                                    </Link>
+                                    <button onClick={() => restore(productsale.id)} className="btn btn-sm btn-success me-1">
+                                        <FaTrashRestore />
+                                    </button>
                                     <button onClick={() => productsaleDelete(productsale.id)} className="btn btn-sm btn-danger me-1">
                                         <FaTrash />
                                     </button>

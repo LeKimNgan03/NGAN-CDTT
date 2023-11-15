@@ -20,6 +20,18 @@ function remove(id) {
     return httpAxios.delete(`product/destroy/${id}`);
 }
 
+function sortdelete(id) {
+    return httpAxios.post(`product/sortdelete/${id}`);
+}
+
+function restore(id) {
+    return httpAxios.post(`product/restore/${id}`);
+}
+
+function getTrash() {
+    return httpAxios.get('product/trash');
+}
+
 // 
 function getProductAll(limit, page = 1) {
     return httpAxios.get(`product_all/${limit}/${page}`);
@@ -61,7 +73,10 @@ const productservice = {
     getById,
     create,
     update,
-    remove
+    remove,
+    getTrash,
+    restore,
+    sortdelete
 }
 
 export default productservice;

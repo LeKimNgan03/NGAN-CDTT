@@ -20,6 +20,18 @@ function remove(id) {
     return httpAxios.delete(`post/destroy/${id}`);
 }
 
+function sortdelete(id) {
+    return httpAxios.post(`post/sortdelete/${id}`);
+}
+
+function restore(id) {
+    return httpAxios.post(`post/restore/${id}`);
+}
+
+function getTrash() {
+    return httpAxios.get('post/trash');
+}
+
 // 
 function getPostAll() {
     return httpAxios.get(`post_all`);
@@ -51,7 +63,10 @@ const postservice = {
     getById,
     create,
     update,
-    remove
+    remove,
+    getTrash,
+    restore,
+    sortdelete
 }
 
 export default postservice;

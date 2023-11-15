@@ -1,4 +1,4 @@
-import { FaPlus, FaRegEye, FaEdit, FaTrash, FaTrashAlt } from 'react-icons/fa';
+import { FaArrowLeft, FaTrashRestore, FaTrash } from 'react-icons/fa';
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import userservice from '../../../services/UserService';
@@ -10,14 +10,21 @@ function UserList() {
 
     useEffect(() => {
         {
-            userservice.getAll().then((result) => {
+            userservice.getTrash().then((result) => {
                 setUsers(result.data.users);
             });
         }
     }, [statusdel])
 
     function userDelete(id) {
-        userservice.sortdelete(id).then((result) => {
+        userservice.remove(id).then((result) => {
+            console.log(result.data.message);
+            setStatusDel(result.data.id);
+        });
+    }
+
+    function restore(id) {
+        userservice.restore(id).then((result) => {
             console.log(result.data.message);
             setStatusDel(result.data.id);
         });
@@ -28,14 +35,11 @@ function UserList() {
             <div className="card-header">
                 <div className="row">
                     <div className="col-md-6">
-                        <strong className="text-dark">DANH SÁCH NGƯỜI DÙNG</strong>
+                        <strong className="text-dark">THÙNG RÁC</strong>
                     </div>
                     <div className="col-md-6 text-end">
-                        <Link to={"/admin/user/trash"} className="btn btn-sm btn-danger me-2">
-                            <FaTrashAlt /> Thùng rác
-                        </Link>
-                        <Link to="/admin/user/create" className="btn btn-sm btn-success">
-                            <FaPlus /> Thêm
+                        <Link to="/admin/user" className="btn btn-sm btn-success">
+                            <FaArrowLeft /> Quay Về
                         </Link>
                     </div>
                 </div>
@@ -77,12 +81,9 @@ function UserList() {
                                 <td className="text-center">{user.password}</td>
                                 <td className="text-center">{user.roles}</td>
                                 <td className="text-center">
-                                    <Link to={`/admin/user/show/${user.id}`} className="btn btn-sm btn-primary me-1">
-                                        <FaRegEye />
-                                    </Link>
-                                    <Link to={`/admin/user/update/${user.id}`} className="btn btn-sm btn-warning me-1">
-                                        <FaEdit />
-                                    </Link>
+                                    <button onClick={() => restore(user.id)} className="btn btn-sm btn-success me-1">
+                                        <FaTrashRestore />
+                                    </button>
                                     <button onClick={() => userDelete(user.id)} className="btn btn-sm btn-danger me-1">
                                         <FaTrash />
                                     </button>

@@ -17,7 +17,7 @@ function ProductShow() {
     }, []);
 
     function productDelete(id) {
-        productservice.remove(id).then((result) => {
+        productservice.sortdelete(id).then((result) => {
             alert(result.data.message);
             navigate('/admin/product', { replace: true })
         });

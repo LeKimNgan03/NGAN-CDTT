@@ -16,7 +16,7 @@ function ProductsaleShow() {
     }, []);
 
     function productsaleDelete(id) {
-        productsaleservice.remove(id).then((result) => {
+        productsaleservice.sortdelete(id).then((result) => {
             alert(result.data.message);
             navigate('/admin/productsale', { replace: true })
         });

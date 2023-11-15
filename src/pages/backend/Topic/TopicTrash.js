@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { FaPlus, FaRegEye, FaEdit, FaTrash, FaTrashAlt } from 'react-icons/fa';
+import { FaArrowLeft, FaTrashRestore, FaTrash } from 'react-icons/fa';
 import { Link } from "react-router-dom";
 import topicservice from '../../../services/TopicService';
 import Moment from 'react-moment';
@@ -10,14 +10,21 @@ function TopicList() {
 
     useEffect(() => {
         {
-            topicservice.getAll().then((result) => {
+            topicservice.getTrash().then((result) => {
                 setTopics(result.data.topics);
             });
         }
     }, [statusdel])
 
     function topicDelete(id) {
-        topicservice.sortdelete(id).then((result) => {
+        topicservice.remove(id).then((result) => {
+            console.log(result.data.message);
+            setStatusDel(result.data.id);
+        });
+    }
+
+    function restore(id) {
+        topicservice.restore(id).then((result) => {
             console.log(result.data.message);
             setStatusDel(result.data.id);
         });
@@ -28,14 +35,11 @@ function TopicList() {
             <div className="card-header">
                 <div className="row">
                     <div className="col-md-6">
-                        <strong className="text-dark">DANH SÁCH CHỦ ĐỀ</strong>
+                        <strong className="text-dark">THÙNG RÁC</strong>
                     </div>
                     <div className="col-md-6 text-end">
-                        <Link to={"/admin/topic/trash"} className="btn btn-sm btn-danger me-2">
-                            <FaTrashAlt /> Thùng rác
-                        </Link>
-                        <Link to="/admin/topic/create" className="btn btn-sm btn-success">
-                            <FaPlus /> Thêm
+                        <Link to="/admin/topic" className="btn btn-sm btn-success">
+                            <FaArrowLeft /> Quay Về
                         </Link>
                     </div>
                 </div>
@@ -61,12 +65,9 @@ function TopicList() {
                                     <Moment format="DD/MM/YYYY">{topic.created_at}</Moment>
                                 </td>
                                 <td className="text-center">
-                                    <Link to={`/admin/topic/show/${topic.id}`} className="btn btn-sm btn-primary me-1">
-                                        <FaRegEye />
-                                    </Link>
-                                    <Link to={`/admin/topic/update/${topic.id}`} className="btn btn-sm btn-warning me-1">
-                                        <FaEdit />
-                                    </Link>
+                                    <button onClick={() => restore(topic.id)} className="btn btn-sm btn-success me-1">
+                                        <FaTrashRestore />
+                                    </button>
                                     <button onClick={() => topicDelete(topic.id)} className="btn btn-sm btn-danger me-1">
                                         <FaTrash />
                                     </button>

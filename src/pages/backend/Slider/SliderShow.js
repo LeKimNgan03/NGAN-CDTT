@@ -16,7 +16,7 @@ function SliderShow() {
     }, []);
 
     function sliderDelete(id) {
-        sliderservice.remove(id).then((result) => {
+        sliderservice.sortdelete(id).then((result) => {
             alert(result.data.message);
             navigate('/admin/slider', { replace: true })
         });

@@ -65,7 +65,9 @@ function Header() {
                     <nav className="navbar navbar-expand-lg me-lg-auto">
                         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                             <ul className="navbar-nav">
-                                {menus.map((menu, index) => <NavbarItem key={index} menu={menu} />)}
+                                {menus.map((menu, index) =>
+                                    <NavbarItem key={index} menu={menu} />
+                                )}
                             </ul>
                         </div>
                     </nav>

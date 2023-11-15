@@ -20,18 +20,27 @@ function remove(id) {
     return httpAxios.delete(`productsale/destroy/${id}`);
 }
 
-// 
-function getProductSaleHome(limit, category_id) {
-    return httpAxios.get(`productsale_home/${limit}/${category_id}`);
+function sortdelete(id) {
+    return httpAxios.post(`productsale/sortdelete/${id}`);
+}
+
+function restore(id) {
+    return httpAxios.post(`productsale/restore/${id}`);
+}
+
+function getTrash() {
+    return httpAxios.get('productsale/trash');
 }
 
 const productsaleservice = {
-    getProductSaleHome,
     getAll,
     getById,
     create,
     update,
-    remove
+    remove,
+    getTrash,
+    restore,
+    sortdelete
 }
 
 export default productsaleservice;
