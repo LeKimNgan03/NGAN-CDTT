@@ -56,7 +56,7 @@ function OrderCreate() {
 
                 <div className="card-body">
                     <div className="row">
-                        <div className="col-md-9">
+                        <div className="col-md-6">
                             <div className="mb-3">
                                 <label htmlFor="user_id">Người Dùng</label>
                                 <select
@@ -76,8 +76,18 @@ function OrderCreate() {
                                 <input
                                     type="text"
                                     name="name"
-                                    value={name}
-                                    onChange={(e) => setName(e.target.value)}
+                                    value={delivery_name}
+                                    onChange={(e) => setDeliName(e.target.value)}
+                                    className="form-control" />
+                            </div>
+
+                            <div className="mb-3">
+                                <label htmlFor="name">Đơn Hàng</label>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    value={delivery_gender}
+                                    onChange={(e) => setDeliGender(e.target.value)}
                                     className="form-control" />
                             </div>
 
@@ -86,30 +96,30 @@ function OrderCreate() {
                                 <input
                                     type="text"
                                     name="name"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
+                                    value={delivery_email}
+                                    onChange={(e) => setDeliEmail(e.target.value)}
                                     className="form-control" />
                             </div>
+                        </div>
 
+                        <div className="col-md-6">
                             <div className="mb-3">
                                 <label htmlFor="name">Địa chỉ</label>
                                 <textarea
                                     type="text"
                                     name="name"
-                                    value={address}
-                                    onChange={(e) => setAddress(e.target.value)}
+                                    value={delivery_address}
+                                    onChange={(e) => setDeliAddress(e.target.value)}
                                     className="form-control" />
                             </div>
-                        </div>
 
-                        <div className="col-md-3">
                             <div className="mb-3">
                                 <label htmlFor="name">Số Điện Thoại</label>
                                 <input
                                     type="text"
                                     name="name"
-                                    value={phone}
-                                    onChange={(e) => setPhone(e.target.value)}
+                                    value={delivery_phone}
+                                    onChange={(e) => setDeliPhone(e.target.value)}
                                     className="form-control" />
                             </div>
 
@@ -119,6 +129,7 @@ function OrderCreate() {
                                     type="text"
                                     name="name"
                                     value={note}
+                                    rows={4}
                                     onChange={(e) => setNote(e.target.value)}
                                     className="form-control" />
                             </div>

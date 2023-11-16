@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import categoryservice from "../../../services/CategoryService";
 import ProductHome from "./ProductHome";
 import Slider from "./Slider";
-import ProductSale from "./ProductSale";
+// import ProductSale from "./ProductSale";
 
 function Home() {
     const [categories, setCategories] = useState([]);
@@ -21,7 +21,7 @@ function Home() {
             </div>
 
             <div className="product-sale">
-                <ProductSale />
+                {/* <ProductSale /> */}
             </div>
 
             <div className="product">

@@ -28,7 +28,7 @@ function OrderShow() {
             <div className="card-header">
                 <div className="row">
                     <div className="col-md-6">
-                        <strong className="text-dark">CHI TIẾT ĐƠN HÀNG</strong>
+                        <strong className="text-dark">ĐƠN HÀNG</strong>
                     </div>
                     <div className="col-md-6 text-end">
                         <Link to="/admin/order" className="btn btn-sm btn-success me-1">Về Danh Sách</Link>
@@ -53,12 +53,12 @@ function OrderShow() {
                     <tbody>
                         <tr><td>ID</td><td>{id}</td></tr>
                         <tr><td>ID Người Dùng</td><td>{order.user_id}</td></tr>
-                        <tr><td>Tên Liên Hệ</td><td>{order.name}</td></tr>
-                        <tr><td>Email</td><td>{order.email}</td></tr>
-                        <tr><td>Điện Thoại</td><td>{order.phone}</td></tr>
-                        <tr><td>Địa Chỉ</td><td>{order.address}</td></tr>
+                        <tr><td>Tên Đơn Hàng</td><td>{order.delivery_name}</td></tr>
+                        <tr><td>Đơn Hàng</td><td>{order.delivery_gender}</td></tr>
+                        <tr><td>Email</td><td>{order.delivery_email}</td></tr>
+                        <tr><td>Điện Thoại</td><td>{order.delivery_phone}</td></tr>
+                        <tr><td>Địa Chỉ</td><td>{order.delivery_address}</td></tr>
                         <tr><td>Ghi Chú</td><td>{order.note}</td></tr>
-                        <tr><td>Trạng Thái</td><td>{order.status}</td></tr>
                     </tbody>
                 </table>
             </div>

@@ -17,7 +17,7 @@ function OrderdetailShow() {
     }, []);
 
     function orderdetailDelete(id) {
-        orderdetailservice.remove(id).then((result) => {
+        orderdetailservice.sortdelete(id).then((result) => {
             alert(result.data.message);
             navigate('/admin/orderdetail', { replace: true })
         });
@@ -56,7 +56,9 @@ function OrderdetailShow() {
                         <tr><td>ID Sản Phẩm</td><td>{orderdetail.product_id}</td></tr>
                         <tr><td>Giá tiền</td><td>{orderdetail.price}</td></tr>
                         <tr><td>Số lượng</td><td>{orderdetail.qty}</td></tr>
-                        <tr><td>Tổng tiền</td><td>{orderdetail.total}</td></tr>
+                        <tr><td>Giảm Giá</td><td>{orderdetail.discount}</td></tr>
+                        <tr><td>Tổng Giá Trị</td><td>{orderdetail.amount}</td></tr>
+                        <tr><td>Ghi Chú</td><td>{orderdetail.note}</td></tr>
                     </tbody>
                 </table>
             </div>

@@ -15,11 +15,11 @@ function OrderUpdate() {
 
     const navigate = useNavigate();
     const [user_id, setUserId] = useState(0);
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState();
-    const [address, setAddress] = useState('');
-    const [status, setStatus] = useState(1);
+    const [delivery_name, setDeliName] = useState('');
+    const [delivery_gender, setDeliGender] = useState('');
+    const [delivery_email, setDeliEmail] = useState('');
+    const [delivery_phone, setDeliPhone] = useState();
+    const [delivery_address, setDeliAddress] = useState('');
     const [note, setNote] = useState('');
 
     const { id } = useParams("id");
@@ -29,11 +29,11 @@ function OrderUpdate() {
             orderservice.getById(id).then((result) => {
                 const tmp = result.data.order;
                 setUserId(tmp.user_id);
-                setName(tmp.name);
-                setEmail(tmp.email);
-                setPhone(tmp.phone);
-                setStatus(tmp.status);
-                setAddress(tmp.address);
+                setDeliName(tmp.delivery_name);
+                setDeliGender(tmp.delivery_gender);
+                setDeliEmail(tmp.delivery_email);
+                setDeliPhone(tmp.delivery_phone);
+                setDeliAddress(tmp.delivery_address);
                 setNote(tmp.note);
             });
         }
@@ -53,13 +53,12 @@ function OrderUpdate() {
         event.preventDefault();
         const order = new FormData();
         order.append("user_id", user_id);
-        order.append("name", name);
-        order.append("email", email);
-        order.append("phone", phone);
-        order.append("address", address);
+        order.append("delivery_name", delivery_name);
+        order.append("delivery_gender", delivery_gender);
+        order.append("delivery_email", delivery_email);
+        order.append("delivery_phone", delivery_phone);
+        order.append("delivery_address", delivery_address);
         order.append("note", note);
-        order.append("status", status);
-
         await orderservice.update(order, id)
             .then((res) => {
                 alert(res.data.message)
@@ -84,7 +83,7 @@ function OrderUpdate() {
 
                 <div className="card-body">
                     <div className="row">
-                        <div className="col-md-9">
+                        <div className="col-md-6">
                             <div className="mb-3">
                                 <label htmlFor="user_id">Người Dùng</label>
                                 <select
@@ -104,8 +103,18 @@ function OrderUpdate() {
                                 <input
                                     type="text"
                                     name="name"
-                                    value={name}
-                                    onChange={(e) => setName(e.target.value)}
+                                    value={delivery_name}
+                                    onChange={(e) => setDeliName(e.target.value)}
+                                    className="form-control" />
+                            </div>
+
+                            <div className="mb-3">
+                                <label htmlFor="name">Đơn Hàng</label>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    value={delivery_gender}
+                                    onChange={(e) => setDeliGender(e.target.value)}
                                     className="form-control" />
                             </div>
 
@@ -114,52 +123,42 @@ function OrderUpdate() {
                                 <input
                                     type="text"
                                     name="name"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
+                                    value={delivery_email}
+                                    onChange={(e) => setDeliEmail(e.target.value)}
                                     className="form-control" />
                             </div>
+                        </div>
 
+                        <div className="col-md-6">
                             <div className="mb-3">
                                 <label htmlFor="name">Địa chỉ</label>
                                 <textarea
                                     type="text"
                                     name="name"
-                                    value={address}
-                                    onChange={(e) => setAddress(e.target.value)}
+                                    value={delivery_address}
+                                    onChange={(e) => setDeliAddress(e.target.value)}
                                     className="form-control" />
                             </div>
-                        </div>
 
-                        <div className="col-md-3">
                             <div className="mb-3">
                                 <label htmlFor="name">Số Điện Thoại</label>
                                 <input
                                     type="text"
                                     name="name"
-                                    value={phone}
-                                    onChange={(e) => setPhone(e.target.value)}
+                                    value={delivery_phone}
+                                    onChange={(e) => setDeliPhone(e.target.value)}
                                     className="form-control" />
                             </div>
+
                             <div className="mb-3">
                                 <label htmlFor="name">Ghi Chú</label>
                                 <textarea
                                     type="text"
                                     name="name"
                                     value={note}
+                                    rows={4}
                                     onChange={(e) => setNote(e.target.value)}
                                     className="form-control" />
-                            </div>
-
-                            <div className="mb-3">
-                                <label htmlFor="sort">Trạng Thái</label>
-                                <select
-                                    name="sort"
-                                    value={status}
-                                    className="form-control"
-                                    onChange={(e) => setStatus(e.target.value)}>
-                                    <option value="1">Xuất Bản</option>
-                                    <option value="2">Chưa Xuất Bản</option>
-                                </select>
                             </div>
                         </div>
                     </div>

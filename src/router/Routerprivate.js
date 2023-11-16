@@ -28,11 +28,13 @@ import OrderList from "../pages/backend/Order/OrderList";
 import OrderCreate from "../pages/backend/Order/OrderCreate";
 import OrderShow from "../pages/backend/Order/OrderShow";
 import OrderUpdate from "../pages/backend/Order/OrderUpdate";
+import OrderTrash from "../pages/backend/Order/OrderTrash";
 
 import OrderdetailList from "../pages/backend/Orderdetail/OrderdetailList";
 import OrderdetailCreate from "../pages/backend/Orderdetail/OrderdetailCreate";
 import OrderdetailShow from "../pages/backend/Orderdetail/OrderdetailShow";
 import OrderdetailUpdate from "../pages/backend/Orderdetail/OrderdetailUpdate";
+import OrderdetailTrash from "../pages/backend/Orderdetail/OrderdetailTrash";
 
 import PolicyList from "../pages/backend/Policy/PolicyList";
 import PolicyCreate from "../pages/backend/Policy/PolicyCreate";
@@ -107,11 +109,13 @@ const RouterPrivate = [
     { path: '/admin/order/create', component: OrderCreate },
     { path: '/admin/order/update/:id', component: OrderUpdate },
     { path: '/admin/order/show/:id', component: OrderShow },
+    { path: '/admin/order/trash', component: OrderTrash },
 
     { path: '/admin/orderdetail', component: OrderdetailList },
     { path: '/admin/orderdetail/create', component: OrderdetailCreate },
     { path: '/admin/orderdetail/update/:id', component: OrderdetailUpdate },
     { path: '/admin/orderdetail/show/:id', component: OrderdetailShow },
+    { path: '/admin/orderdetail/trash', component: OrderdetailTrash },
 
     { path: '/admin/policy', component: PolicyList },
     { path: '/admin/policy/create', component: PolicyCreate },

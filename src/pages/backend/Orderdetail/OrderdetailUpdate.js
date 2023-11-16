@@ -8,6 +8,7 @@ function OrderdetailUpdate() {
     const [products, setProducts] = useState([]);
     const [orders, setOrders] = useState([]);
 
+    // Lấy mã sản phẩm
     useEffect(() => {
         {
             productservice.getAll().then((result) => {
@@ -16,6 +17,7 @@ function OrderdetailUpdate() {
         }
     }, []);
 
+    // Lấy mã đơn hàng
     useEffect(() => {
         {
             orderservice.getAll().then((result) => {
@@ -27,9 +29,12 @@ function OrderdetailUpdate() {
     const navigate = useNavigate();
     const [order_id, setOrderId] = useState(0);
     const [product_id, setProductId] = useState(0);
-    const [total, setTotal] = useState('');
     const [price, setPrice] = useState('');
     const [qty, setQty] = useState();
+    const [discount, setDiscount] = useState();
+    const [amount, setAmount] = useState();
+    const [note, setNote] = useState('');
+    const [status, setStatus] = useState(1);
 
     const { id } = useParams("id");
 
@@ -40,8 +45,10 @@ function OrderdetailUpdate() {
                 setOrderId(tmp.order_id);
                 setProductId(tmp.product_id);
                 setPrice(tmp.price);
-                setTotal(tmp.total);
-                setQty(tmp.qty);
+                setDiscount(tmp.discount);
+                setAmount(tmp.amount);
+                setNote(tmp.note);
+                setStatus(tmp.status);
             });
         }
     }, []);
@@ -63,7 +70,10 @@ function OrderdetailUpdate() {
         orderdetail.append("product_id", product_id);
         orderdetail.append("price", price);
         orderdetail.append("qty", qty);
-        orderdetail.append("total", total);
+        orderdetail.append("discount", discount);
+        orderdetail.append("amount", amount);
+        orderdetail.append("note", note);
+        orderdetail.append("status", status);
         await orderdetailservice.update(orderdetail, id)
             .then((res) => {
                 alert(res.data.message)
@@ -88,9 +98,9 @@ function OrderdetailUpdate() {
 
                 <div className="card-body">
                     <div className="row">
-                        <div className="col-md-9 w-100">
+                        <div className="col-md-6">
                             <div className="mb-3">
-                                <label htmlFor="order_id">Đơn hàng</label>
+                                <label htmlFor="order_id">Mã Đơn hàng</label>
                                 <select
                                     name="order_id"
                                     value={order_id}
@@ -98,13 +108,13 @@ function OrderdetailUpdate() {
                                     onChange={(e) => setOrderId(e.target.value)}>
                                     <option value="0">None</option>
                                     {orders.map((order, index) => (
-                                        <option key={index} value={order.id}>{order.name}</option>
+                                        <option key={index} value={order.id}>{order.id}</option>
                                     ))}
                                 </select>
                             </div>
 
                             <div className="mb-3">
-                                <label htmlFor="product_id">Sản phẩm</label>
+                                <label htmlFor="product_id">Mã Sản phẩm</label>
                                 <select
                                     name="product_id"
                                     value={product_id}
@@ -136,15 +146,51 @@ function OrderdetailUpdate() {
                                     onChange={(e) => setQty(e.target.value)}
                                     className="form-control" />
                             </div>
+                        </div>
+
+                        <div className="col-md-6">
 
                             <div className="mb-3">
-                                <label htmlFor="name">Total</label>
+                                <label htmlFor="name">Giảm Giá</label>
                                 <input
                                     type="text"
                                     name="name"
-                                    value={total}
-                                    onChange={(e) => setTotal(e.target.value)}
+                                    value={discount}
+                                    onChange={(e) => setDiscount(e.target.value)}
                                     className="form-control" />
+                            </div>
+
+                            <div className="mb-3">
+                                <label htmlFor="name">Tổng Giá Trị</label>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    value={amount}
+                                    onChange={(e) => setAmount(e.target.value)}
+                                    className="form-control" />
+                            </div>
+
+                            <div className="mb-3">
+                                <label htmlFor="name">Ghi Chú</label>
+                                <textarea
+                                    type="text"
+                                    name="name"
+                                    value={note}
+                                    rows={3}
+                                    onChange={(e) => setNote(e.target.value)}
+                                    className="form-control" />
+                            </div>
+
+                            <div className="mb-3">
+                                <label htmlFor="sort">Trạng Thái</label>
+                                <select
+                                    name="sort"
+                                    value={status}
+                                    className="form-control"
+                                    onChange={(e) => setStatus(e.target.value)}>
+                                    <option value="1">Xuất bản</option>
+                                    <option value="2">Chưa xuất bản</option>
+                                </select>
                             </div>
                         </div>
                     </div>
